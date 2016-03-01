@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Learning jQuery</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<script  type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+ 	<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+	<style>
+		#draggable{
+			width: 200px;
+			height:200px;
+			background-color: grey;
+		}
+	</style>
+
+	<script>
+  $(function() {
+    $( "#draggable" ).draggable();
+  });
+  </script>
+
+</head>
+<body>
+	<div id="draggable"> square </div>
+
+	<script>
+		$("#draggable").draggable();
+	</script>
+
+</body>
+</html>

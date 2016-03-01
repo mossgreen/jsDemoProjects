@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Learning jQuery</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<script  type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+ 	<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+	<style>
+		#square{
+			width: 200px;
+			height:200px;
+			background-color: green;
+		}
+
+		#circle{
+			width:200px;
+			height: 200px;
+			background-color: red;
+			border-radius: 100px;
+		}
+	</style>
+
+</head>
+<body>
+	<div id="square"> drag me </div>
+	<div id="circle">resize me.</div>
+
+	<script>
+		$("#square").draggable();
+		$("#circle").resizable();
+	</script>
+
+</body>
+</html>
