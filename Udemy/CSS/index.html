@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Moss's BBC</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<style>
+
+
+		body{
+			font-family: Arial, helvetica, arial, sans-serif;
+			margin: 0;
+			line-height: 16px;
+		}
+		#top-bar{
+			width:100%;
+			height:46%;
+			background-color: #7a0000;
+			margin:0;
+		}
+
+		.fixed-width{
+			width:1150px;
+			margin:0 auto;
+		}
+
+		#bbc-logo{
+			padding-right:10px;
+			float:left;
+			border-right: 1px solid #990000;
+			height:46px;
+		}
+
+		#bbc-logo img{
+			margin:10px 10px 0 10px;
+		}
+
+		#sign-in{
+			float: left;
+			color:#fff;
+			height: 41px;
+			width:200px;
+		}
+
+		#sign-in:hover{
+			border-bottom:5px solid white;
+		}
+
+		#signindiv p{
+			margin: 13px 0 0 50px;
+		}
+
+		#top-menu{
+		}
+
+		#top-menu ul{
+			margin:0;
+			padding:0;
+			float: left;
+			height: 46px;
+		}
+
+		#top-menu li{
+			float:left;
+			color:white;
+			border-left:1px solid #990000;
+			height:33px;
+			list-style:none;
+			padding:13px 20px 0 20px;
+		}
+
+		#top-menu li:hover{
+			height:28px;
+		}
+
+		.white-border:hover{
+			border-bottom:5px solid white;
+		}
+
+		#news:hover{
+			border-bottom:5px solid #9b2313;
+		}
+
+		#sport:hover{
+			border-bottom: 5px solid #ffe711;
+		}
+
+		#weather:hover{
+			border-bottom:5px solid #77cdff;
+		}
+
+		#iplayer:hover{
+			border-bottom:5px dolid #ed3482;
+		}
+
+		#top-menu input{
+			height:25px;
+			border:none;
+			width:180px;
+			font-weight:bold;
+			color:black;
+			font-size: 110%;
+			padding-left: 10px;
+			position:relative;
+			top:-4px;
+		}
+
+		#title-bar{
+			background-color: #990000;
+			width:100%;
+			height: 110px;
+		}
+
+		#news-title{
+			padding:35px 0 0 10px;
+			float:left;
+			font-size: 50px;
+			color:white;
+		}
+
+		#date{
+			float:left;
+			color:white;
+			padding:30px 0 0 20px;
+		}
+
+		#rss{
+			float:right;
+			color:white;
+			padding:30px 20px 0 0;
+		}
+
+		#rss img{
+			height:16px;
+			position:relative;
+			top:2px;
+		}
+
+		.clear{
+			clear:both;
+		}
+
+		#news-menu ul{
+			background-color: #3e0c0d;
+			width: 100%;
+			height:24px;
+			padding:7px 0 0 0;
+			position:relative;
+			top:-17px;
+		}
+
+		#news-menu li{
+			border-right:1px solid #990000;
+			background-color: #3E0C0D;
+			float:left;
+			list-style:none;
+			color:white;
+			padding:0 10px 0 10px;
+			font-size: 90%;
+		}
+
+		#eanda{
+			border-right:none;
+		}
+
+		#news-menu a{
+			color:white;
+		}
+
+		h1 a{
+			color:#1f4f82;
+			font-weight: bold;
+			font-size: 105%;
+			float:left;
+			padding-bottom: 30px;
+		}
+
+		a{
+			text-decoration: none;
+		}
+
+		#news-container{
+			position: relative;
+			top:-15px;
+		}
+
+		.news{
+			color:#990000;
+			float:left;
+			padding:6px 0 0 10px;
+		}
+
+		#news-left{
+			float:left;
+			width:727px;
+		}
+
+		.newsimage{
+			float:left;
+		}
+
+		.news-info{
+			float: left;
+			width: 290;
+			left:15px;
+			padding:0 20px 0 20px;
+		}
+
+		.live{
+			background-color: #f42924;
+			color:#fff;
+			padding: 0 3px 0 3px;
+			margin-right: 4px;
+			font-size: 14px;
+			position:relative;
+			top:-3px;
+		}
+
+		.news-info p{
+			margin:0;
+			color:#616161;
+			line-height:19px;
+		}
+
+		.news-info a{
+			color:#50759d;
+		}
+
+		a:hover{
+			text-decoration: underline;
+		}
+
+		#watch-listen{
+			margin-top: 25px;
+			background-color: #EEEEEE;
+			float:left;
+		}
+
+		#watch-listen h2{
+			color: #565656;
+			margin: 10px 0 10px 10px;
+			font-size: 180%;
+		}
+
+		#watch-lesten-links a{
+			font-size: 140%;
+			font-weight: bold;
+			color: #39638f;
+		}
+
+		#arrow-left{
+			float:left;
+			border-right: 1px solid whtie;
+		}
+
+		.wl-block{
+			float:left;
+			background-color: #d1700e;
+			border-right: 1px solid whtie;
+			width:179px;
+			height:155px;
+		}
+
+		.wl-block-link-container{
+			padding: 5px;
+		}
+		
+		.wl-block-link-container a{
+			color:white;
+		}
+
+		#arrow-left{
+			float:left;
+			border-left:1px solid white;
+		}
+
+
+	</style>  
+</head>
+<body>
+	<div id="container">
+
+
+		<div id="top-bar">
+			<div class="fixed-width">
+				<div id="bbc-logo">
+					<img src="images/logo.png" alt="">
+				</div>
+				<div id="sign-in">
+					<p>
+						Sign In
+					</p>
+				</div>
+				<div id="top-menu">
+					<ul>
+						<li id="news">News</li>
+						<li id="sport">Sport</li>
+						<li id="weather">Weather</li>
+						<li id="iplayer">iPlayer</li>
+						<li class="whtie-boder">TV</li>
+						<li class="whtie-boder">Radio</li>
+						<li class="white-boder">More...</li>
+						<li>
+							<input type="text" placeholder="Search" />
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		
+		<div class="clear"></div>
+
+		<div id="title-bar">
+			<div class="fixed-width">
+				<div id="news-title">NEWS</div>
+				<div id="date">
+					<p><strong>25 March 2014</strong>Last updated at 09:13</p>
+				</div>
+				<div id="rss">
+					<p>RSS<img src="images/rss" alt=""></p>
+				</div>
+				<div class="clear"></div>
+				<div id="news-menu">
+					<ul>
+						<li>
+							<a href="">Home</a>
+							<a href="">World</a>
+							<a href="">UK</a>
+							<a href="">England</a>
+							<a href="">N.Ireland</a>
+							<a href="">Scotland</a>
+							<a href="">Wales</a>
+							<a href="">Business</a>
+							<a href="">Politics</a>
+							<a href="">Health</a>
+							<a href="">Education</a>
+							<a href="">Sci/Environment</a>
+							<a href="">Technology</a>
+							<a href="" style="border-right:none">Entertainment&Arts</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="fixed-width">
+				<div id="news-left">
+					<h1><a href="">Beijing clashes over missing plane</a></h1>
+					<img src="images/newsimage1.jpg" alt="" class="newsimage">
+					<div class="news-info">
+						<p>
+							Angry relatives of passengers on board the missing Malaysia airways plane scuffle with police outside Malaysia's embassy in the Chines capital.
+						</p>
+						<p><a href="">Coming up: News briefing</a></p>
+						<p><a href=""> <span class="live">Live</span>Missing relatives protest</a></p>
+						<p><a href="">Watch 'Massive logistical exercise'</a></p>
+						<p><a href="">Watch 'Flight ended in ocean' </a></p>
+						<p><a href="">Watch How 'pings' helped track plane</a></p>
+						<p><a href="">Watch Cutting-edge methods</a></p>
+						<p><a href="">Can black boxes provide answers?</a></p>
+						<p><a href="">The search for flight MH370</a></p>
+					</div>
+				</div>
+
+				<div id="watch-listen">
+					<h2>Watch/Listen</h2>
+					<div class="watch-carousel">
+						<img src="images/arrowleft" alt="" id="arrow-left">
+						<div class="wl-block">
+							<img src="images/ss1.png" alt="">
+							<div class="wl-block-link-container"><a href="">Ceiling collapse theatre set to reopen</a></div>
+						</div>
+						
+						<div class="wl-block">
+							
+							<img src="images/ss2.png" alt="">
+
+							<div class="wl-block-link-container"><a href="">Frantic call after deadly landslide</a>
+							</div>
+						</div>
+						
+						<img src="images/arrowright.png" alt="" id="arraow-right">
+
+					</div>
+
+					<div id="watch-listen-links">
+						<p><span class="live">Live</span>Live Coverage of Pistorius trial live</p>
+						<p><span class="live">Live</span>BBC News Channel live</p>
+						<p><span class="live">Live</span>BBC Radio 5 live</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
