@@ -135,7 +135,7 @@
 		$(function(){
 			var height = $(window).height()-40;
 			$(".codecontainer").css("height", height+"px");
-			$(".selected").click(function(){
+			$(".selector").click(function(){
 				$(this).toggleClass("selected");
 				var id=$(this).attr("name");
 				$("#"+id+"Container").toggle();
@@ -159,7 +159,58 @@
 	</script>
 </head>
 <body>
+	<div id="container">
+		<div id="titlebar">
+			<div id="title">Code Player</div>
+			<div id="runButton">
+				<div id="run">Run</div>
+			</div>
+			<div id="menu">
+				<ul>
+					<li class="selector selected" name="html">HTML</li>
+					<li class="selector" name="css">CSS</li>
+					<li class="selector" name="js">JS</li>
+					<li class="selector selected" name="result" style="border-right:none">Result</li>
+				</ul>
+			</div>
+		</div>
 
+		<div class="break"></div>
+		
+		<div class="codecontainer" id="htmlContainer">
+			<span class="containerTitle">HTML</span>
+			<textarea name="" id="html" cols="30" rows="10" class="code">
+				<div id="test">sdf</div>
+			</textarea>			
+		</div>
+
+		<div class="codecontainer" id="cssContainer">
+			<span class="containerTitle">CSS</span>
+			<textarea name="" id="css" cols="30" rows="10" class="code">
+				#test{
+					background:green;
+				}
+			</textarea>			
+		</div>	
+
+		<div class="codecontainer" id="jsContainer">
+			<span class="containerTitle">JS</span>
+			<textarea name="" id="js" cols="30" rows="10" class="code">
+				alert(7);
+			</textarea>			
+		</div>	
+
+		<div class="codecontainer" id="resultContainer">
+			<span class="containerTitle">Result</span>
+			<div class="resultContainer">
+				<iframe src="" frameborder="0" id="resultFrame"></iframe>
+			</div>	
+		</div>
+
+
+
+
+	</div>
 
 
 
