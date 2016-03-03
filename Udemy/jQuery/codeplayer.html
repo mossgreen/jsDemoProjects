@@ -6,8 +6,10 @@
 	<meta http-equiv="Content-type" content="text/html"; charset="utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-	<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
-	<script src="http:ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jqueryui.min.js"></script>
+	<script  type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+ 	<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
 
 	<style>
@@ -18,8 +20,8 @@
 		}
 
 		body, html{
-			height:100px;
-			width:100px;
+			height:100%;
+			width:100%;
 		}
 
 		#container{
@@ -47,7 +49,7 @@
 
 		#menu ul{
 			border:1px solid grey;
-			boder-radius:5px;
+			border-radius:5px;
 			height:30px;
 		}
 
@@ -110,6 +112,7 @@
 			font-size: 130%;
 			border-radius: 10px;
 			padding:0 10px;
+			background-color: green;
 		}
 
 		#resultFrame{
@@ -133,8 +136,13 @@
 
 	<script>
 		$(function(){
+
+			//find the window's  height and set the value to a variable
+			//set this height to the container of this page
 			var height = $(window).height()-40;
 			$(".codecontainer").css("height", height+"px");
+
+
 			$(".selector").click(function(){
 				$(this).toggleClass("selected");
 				var id=$(this).attr("name");
@@ -155,7 +163,6 @@
 			})
 		});
 
-		alert("a");
 	</script>
 </head>
 <body>
@@ -163,7 +170,7 @@
 		<div id="titlebar">
 			<div id="title">Code Player</div>
 			<div id="runButton">
-				<div id="run">Run</div>
+				<button id="run">Run</button>
 			</div>
 			<div id="menu">
 				<ul>
@@ -179,14 +186,14 @@
 		
 		<div class="codecontainer" id="htmlContainer">
 			<span class="containerTitle">HTML</span>
-			<textarea name="" id="html" cols="30" rows="10" class="code">
+			<textarea name="" id="html" class="code">
 				<div id="test">sdf</div>
 			</textarea>			
 		</div>
 
 		<div class="codecontainer" id="cssContainer">
 			<span class="containerTitle">CSS</span>
-			<textarea name="" id="css" cols="30" rows="10" class="code">
+			<textarea name="" id="css" class="code">
 				#test{
 					background:green;
 				}
@@ -195,7 +202,7 @@
 
 		<div class="codecontainer" id="jsContainer">
 			<span class="containerTitle">JS</span>
-			<textarea name="" id="js" cols="30" rows="10" class="code">
+			<textarea name="" id="js" class="code">
 				alert(7);
 			</textarea>			
 		</div>	
@@ -203,7 +210,7 @@
 		<div class="codecontainer" id="resultContainer">
 			<span class="containerTitle">Result</span>
 			<div class="resultContainer">
-				<iframe src="" frameborder="0" id="resultFrame"></iframe>
+				<iframe  id="resultFrame"></iframe>
 			</div>	
 		</div>
 
