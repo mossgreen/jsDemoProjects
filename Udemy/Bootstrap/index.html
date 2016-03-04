@@ -26,11 +26,30 @@
 		.large{
 			font-size: 400%;
 		}
+
+		#div1{
+			background-color: blue;
+		}
+		#div2{
+			background-color: red;
+		}
+		#div3{
+			background-color: green;
+		}
+
+/*		#div1, #div2, #div3{
+			height:800px;
+		}*/
+
+		.contentDiv{
+			height:800px;
+		}
+
     </style>
   </head>
-  <body>
+  <body data-spy="scroll" data-target=".navbar-collapse">
 
-  	<div class="navbar navbar-default">
+  	<div class="navbar navbar-default navbar-fixed-top">
   		<div class="container">
   			<div class="navbar-header">
   				<a href="" class="navbar-brand">
@@ -48,9 +67,9 @@
   			</div>
   			<div class="collapse navbar-collapse">
   				<ul class="nav navbar-nav">
-  					<li class="active"><a href="">page1</a></li>
-  					<li><a href="">page2</a></li>
-  					<li><a href="">page3</a></li>
+  					<li class="active"><a href="#div1">page1</a></li>
+  					<li><a href="#div2">page2</a></li>
+  					<li><a href="#div3">page3</a></li>
   				</ul>
   			</div>
   			
@@ -172,6 +191,12 @@
 				</div>
 			</div>
 		</div>
+	</div>
+
+	<div class="container">
+		<div id="div1" class="contentDiv"></div>
+		<div id="div2" class="contentDiv"></div>
+		<div id="div3" class="contentDiv"></div>
 	</div>
 
 
