@@ -23,18 +23,23 @@
       }
 
       #topContainer{
-        background-image: url("backgroud.jpg");
+        background-image: url("background.jpg");
         height:400px;
-        width:100%;
+        width: 100%;
         background-size: cover;
       }
+
       #topRow{
-        margin-top:100px;
-        text-align:center;
+        margin-top: 100px;
+        text-align: center;
       }
 
       #topRow h1{
         font-size: 300%;
+      }
+
+      #emailSignup{
+        margin-top: 50px;
       }
 
       .bold{
@@ -46,7 +51,7 @@
       }
 
       .center{
-        text-align: center;
+        text-align:center;
       }
 
       .title{
@@ -55,7 +60,7 @@
       }
 
       #footer{
-        background-color: lightblue;
+        background-color: #b0d1fb;
         padding-top: 70px;
         width: 100%;
       }
@@ -65,106 +70,94 @@
       }
 
       .appstoreImg{
-        width: 250px;
+        width:250px;
       }
     </style>
   </head>
-  <body>
-    <div class="nabvar navbar-reverse navbar-fixed-top">
+  <body data-spy="sroll" data-target=".navbar-collapse">
+    <div class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
-          <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" >
+          <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a href="" class="navbar-brand">MyApp</a>
+          <a href="" class="navbar-brand">MyAPP</a>
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#download">Download the app</a></li>
+            <li class="active"><a href="#topContainer">Home</a></li>
+            <li><a href="#details">About</a></li>
+            <li><a href="#footer">Download</a></li>            
           </ul>
 
           <form action="" class="navbar-form navbar-right">
             <div class="form-group">
               <input type="email" placeholder="Email" class="form-control">
             </div>
-
             <div class="form-group">
               <input type="password" placeholder="Password" class="form-control">
             </div>
 
-            <button class="btn btn-success" type="submit" >Login</button>
-
+            <button class="btn btn-sucess" type="submit">Login</button>
           </form>
         </div>
       </div>
     </div>
 
     <div class="container contentContainer" id="topContainer">
-
       <div class="row">
-        <div id="topRow"  class="col-md-6 col-md-offset-3">
-          <h1 class="marginTop" >My Awesome APP</h1>
-          <p class="lead">This is why should dowload this fantastic app.</p>
-          <p  >some more information about this app. you can go into a little more detail to  this app if you want to.</p>
-
-          <p class="bold marginTop" >Interested? Hoin our email -list .</p>
-
-          <form class="marginTop" >
+        <div class="col-md-6 col-md-offset-3" id="topRow">
+          <h1 class="marginTop">My Awesome App</h1>
+          <p class="lead">This is why should download this fantastic app.</p>
+          <p>some more information about the app. You can go into a little more detail here if you want to.</p>
+          <p class="bold margintop">interested? Join our mailing list!</p>
+          <form action="" class="marginTop">
             <div class="input-group">
               <span class="input-group-addon">@</span>
-              <input type="email" class="form-control" placeholder="Your Email here"></div>
-              <input type="submit" class="btn btn-success btn-lg marginTop">
+              <input type="email" class="form-control" placeholder="Your Email" />
+
+            </div>
+
+            <input type="submit" class="btn btn-success btn-lg marginTop" />
           </form>
         </div>
       </div>
     </div>
 
-    <!-- another container -->
-    <div class="container contentContainer">
-      <div class="row">
-        <h1 class="center title ">WHY app is awesome</h1>
-        <p class="center lead">Summary of the app's awesomeness</p>
+    <div class="container contentContainer" id="details">
+      <div class="row center">
+        <h1 class="center title">Why this app is awesome</h1>
+        <p class="lead center">Summary of the app's awesomeness</p>
       </div>
 
       <div class="row marginBottom">
         <div class="col-md-4 marginTop">
-          <h2><span class="glyphicon glyphicon-music" >Header</span>Header</h2>
-          <p>
-            a brief description of one of the best features of tyour app. May be a little akword.a brief description of one of the best features of tyour app. May be a little akword.a brief description of one of the best features of tyour app. May be a little akword.
-          </p>
-          <button class="btn btn-success marginTop">Sign up!</button>  
+          <h2><span class="glyphicon glyphicon-music">Header</span></h2>
+          <p>A brief description of one of the best features of your app. Maybe a little more text. A brief description of one of the best feature of your app. may be a little more text. A brief description of one of the best features of your app. May be a little more text.</p>
+          <button class="btn btn-success marginTop">Sign up!</button>
         </div>
 
         <div class="col-md-4 marginTop">
-          <h2><span class="glyphicon glyphicon-off" >Header</span>Header</h2>
-          <p>
-            a brief description of one of the best features of tyour app. May be a little akword.a brief description of one of the best features of tyour app. May be a little akword.a brief description of one of the best features of tyour app. May be a little akword.
-          </p>
-          <button class="btn btn-success marginTop">Sign up!</button>  
+          <h2><span class="glyphicon glyphicon-off">Header</span></h2>
+          <p>A brief description of one of the best features of your app. Maybe a little more text. A brief description of one of the best feature of your app. may be a little more text. A brief description of one of the best features of your app. May be a little more text.</p>
+          <button class="btn btn-success marginTop">Sign up!</button>
         </div>
 
         <div class="col-md-4 marginTop">
-          <h2><span class="glyphicon glyphicon-pencil" >Header</span>Header</h2>
-          <p>
-            a brief description of one of the best features of tyour app. May be a little akword.a brief description of one of the best features of tyour app. May be a little akword.a brief description of one of the best features of tyour app. May be a little akword.
-          </p>
-          <button class="btn btn-success marginTop">Sign up!</button>  
-        </div>
-
-
+          <h2><span class="glyphicon glyphicon-pencil">Header</span></h2>
+          <p>A brief description of one of the best features of your app. Maybe a little more text. A brief description of one of the best feature of your app. may be a little more text. A brief description of one of the best features of your app. May be a little more text.</p>
+          <button class="btn btn-success marginTop">Sign up!</button>
+        </div>        
       </div>
     </div>
 
     <div class="container contentContainer" id="footer">
       <div class="row">
-        <h1 class="center title">Download the app</h1>
-        <p class="center lead">really, why shoud I download this app</p>
-        <p class="center"><img src="appstore.jpg" alt="" class="appstoreImg"></p>
-
+        <h1 class="center title">Download the app!</h1> 
+        <p class="lead center">Really, why should I download this app?</p>
+        <p class="center"><img src="appstore.jpg" alt="" class="appstoreImg" /></p>
       </div>
     </div>
 
@@ -174,9 +167,20 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
-
+    
     <script>
+      
       $(".contentContainer").css("min-height", $(window).height());
+
+      
     </script>
+
+
+
+
+
+
+
+
   </body>
 </html>
