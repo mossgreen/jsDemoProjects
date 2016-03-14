@@ -9,6 +9,8 @@
 	<body>
 		<div>
 			<?php
+			
+				//sending emails
 				$emailTo = "";
 				$subject = "I hope this works!";
 				$body = "I think you're great";
@@ -19,11 +21,39 @@
 				}else{
 					echo "Mail failed";
 				}
+				echo"<br /><br />";
+
+
+				//$_GET
+				if($_GET["name"]){
+					echo "your name is: ".$_GET[name];
+				}
+				
+				if($_GET["submit"]){
+					if($_GET["name"]){
+						echo "your name is: ".$_GET[name];
+					}else{
+						echo "please type in you name";
+					}
+				}
+
+
+				
+				
 			
   	
   	
   			?>
 		</div>
+		
+		
+		<form>
+			<label for="name">Name</label>
+			<input name="name" type="text" />
+				
+			<input type="submit" name="submitIt" value="Submit your name" />
+		</form>
+				
 	</body>
 </html>
 
@@ -140,6 +170,16 @@ while($array[$i]){
 	echo" Key: $i Value: $array[$i] <br />";	
 	$i ++;
 }
+
+echo"<br /><br />";
+//http://217.199.187.190/gufeifei.com/php/index.php?name=rob&username=moss
+print_r($_GET);
+//Array ( [name] => rob [username] => moss )
+
+echo"<br /><br />";
+
+
+
 
 ?>
 
