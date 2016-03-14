@@ -69,9 +69,28 @@ if ($number != $thatNumber AND $thatNumber == $thirdNumber){
 echo"<br /><br />";
 
 
+for($i = 1; $i <= 10; $i++){
+	echo $i."<br />";
+}
+echo"<br /><br />";
+
+$array = array("cat", "dog", "turtle", "kangoroo");
+print_r($array);
+echo"<br /><br />";
+foreach($array as $key =>$value){
+	echo "Key: $key Value: $value <br />";
+}
+echo"<br /><br />";
 
 
-
+$i = 0;
+$array = array("apple", "banana", "grape");
+while($array[$i]){
+	echo $array[$i]." <br />";
+	
+	echo" Key: $i Value: $array[$i] <br />";	
+	$i ++;
+}
 
 
 
