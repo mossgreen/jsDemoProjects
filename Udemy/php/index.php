@@ -25,20 +25,53 @@
 
 
 				//$_GET
-				if($_GET["name"]){
-					echo "your name is: ".$_GET[name];
-				}
+// 				if($_GET["name"]){
+// 					echo "your name is: ".$_GET[name];
+// 				}
 				
-				if($_GET["submit"]){
-					if($_GET["name"]){
-						echo "your name is: ".$_GET[name];
+// 				if($_GET["submit"]){
+// 					if($_GET["name"]){
+// 						echo "your name is: ".$_GET[name];
+// 					}else{
+// 						echo "please type in you name";
+// 					}
+// 				}
+
+				//post
+				
+				$names = array("Fred", "Rob", "Ian");
+				print_r($_POST);
+				
+				if($_POST["submit"]){
+				
+					if($_POST["name"]){
+					
+						echo "your name is: ".$_POST["name"];
+						echo "<br />";
+						
+						foreach($names as $name){
+						
+							if($_POST["name"] == $name){
+								echo "I know your name: ".$name;
+								echo "<br />";
+
+								$knowYou = 1;
+							}
+							
+						
+						}
+						
+						if(!$knowyou){
+							echo "I don't know you.";
+							echo "<br />";
+
+						}
 					}else{
 						echo "please type in you name";
 					}
-				}
-
-
+				}	
 				
+							
 				
 			
   	
@@ -47,11 +80,11 @@
 		</div>
 		
 		
-		<form>
+		<form method = "post">
 			<label for="name">Name</label>
 			<input name="name" type="text" />
 				
-			<input type="submit" name="submitIt" value="Submit your name" />
+			<input type="submit" name="submit" value="Submit your name" />
 		</form>
 				
 	</body>
