@@ -44,7 +44,7 @@
 		}
 		
 		.alert{
-			margin-tip:20px;
+			margin-top:20px;
 			display:none;
 		}
 	
@@ -69,7 +69,9 @@
 				</form>
 			
 				
-				<div class="alert alert-success">Success!</div>
+				<div id="success" class="alert alert-success">Success!</div>
+				<div id="fail" class="alert alert-danger">Could not find data in that city!</div>
+				<div id="noCity" class="alert alert-danger">type in a city !</div>
 
 			</div>
 			
@@ -90,13 +92,22 @@
 <script>
 	$("#findMyWeather").click(function(event){
 		event.preventDefault();
+		$(".alert").hide();
 		
 		if($("#city").val() != ""){
 			$.get("scraper.php?city=" + $("#city").val(), function(data){
-				$(".alert").html(data).fadeIn();
+				
+				if (data == ""){
+					
+					$("#fail").fadeIn();
+				}else{
+				
+					$("#success").html(data).fadeIn();
+				}
 			});			
 		}else{
-			alert("please enter a city name");
+			
+			$("#noCity").fadeIn();
 		}
 		
 		
