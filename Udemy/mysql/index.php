@@ -11,21 +11,32 @@ if(mysqli_connect_error()){
 }
 
 //add new users in database, however now is right, notice the space and '' below
-//$query = "insert into users (email, password) values ('ad fadsf', 'youaregood')";
+// $query = "insert into users (email, password) values ('adadf', 'youare@good')";
 
 
 //write limit in the end is best practice, it will limit the row that will be updated
 // $query = "update users set email = 'moss@moss.moss' where id = 1 limit 1";
-$query = "update users set password = 'hahamoss' where email = 'moss@moss.moss' limit 1";
+//$query = "update users set password = 'hahamoss' where email = 'moss@moss.moss' limit 1";
 
 mysqli_query($link, $query);
 
-$query = "SELECT * FROM users";
-
+// $query = "SELECT * FROM users";
+// $query = "select * from users where email like '%moss.moss' ";
+// 	$query = "select * from users where email like '%mo%'";
+// $query = "select * from users where id <=3";
+// $query = "select email from users";
+// 	$query = "select email from users where id <= 2 and email like '%m%'";
+	$name = "moss O's";
+	$query = "select * from users where name = '".mysqli_real_escape_string($link, $name)."' ";
+	
+	
+	
 if($result = mysqli_query($link, $query)){
-	$row = mysqli_fetch_array($result);
+	while($row = mysqli_fetch_array($result)){
+	print_r($row);
+	}
 // 	print_r($row);
-echo "your email is ".$row['email']."<br /> and your password is ".$row['password'];
+// echo "your email is ".$row['email']."<br /> and your password is ".$row['password'];
 // echo "your email is ".$row[1]."<br /> and your password is ".$row[2];
 
 }
