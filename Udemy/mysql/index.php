@@ -10,6 +10,16 @@ if(mysqli_connect_error()){
 	die( "error occurs");
 }
 
+//add new users in database, however now is right, notice the space and '' below
+//$query = "insert into users (email, password) values ('ad fadsf', 'youaregood')";
+
+
+//write limit in the end is best practice, it will limit the row that will be updated
+// $query = "update users set email = 'moss@moss.moss' where id = 1 limit 1";
+$query = "update users set password = 'hahamoss' where email = 'moss@moss.moss' limit 1";
+
+mysqli_query($link, $query);
+
 $query = "SELECT * FROM users";
 
 if($result = mysqli_query($link, $query)){
