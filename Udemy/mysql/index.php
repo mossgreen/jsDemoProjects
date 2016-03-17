@@ -1,5 +1,17 @@
 <?php
 
+	//not safe
+	echo md5("password");
+	
+	//using salt is not safe neither, since salt is a fixed number
+	$salt = "somethingCompleted";
+	echo md5 = ($salt."password"); 
+	
+	//safe way is to give it a dynamic salt
+	$row['id'] = 73;
+	echo md5(md5($row)."password"); //$row is dynamic, and will be as input again
+	
+
 
 
 	setcookie("customerId", "1234", time() + 60*60*24*5);
