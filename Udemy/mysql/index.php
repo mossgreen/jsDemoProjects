@@ -1,5 +1,18 @@
 <?php
 
+
+
+	setcookie("customerId", "1234", time() + 60*60*24*5);
+	
+	//unset cookie in next page
+	setcookie("customerId", "", time()-60*60); 
+	
+	//updata cookie
+	$_COOKIE["customerId"] = "test";
+	echo $_COOKIE["customerId"];
+
+
+
 	session_start();
 // 	echo $_SESSION['username']; //remember, SESSION is upper case here
 
