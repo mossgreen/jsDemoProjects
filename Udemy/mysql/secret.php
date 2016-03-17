@@ -26,13 +26,18 @@
 			}else{
 				// 
 // 				//failed to refactor
-// 				$userEmail = '".mysqli_real_escape_string($link, $_POST['email'])."';
-// 				$userPassword = '".mysqli_real_escape_string($link, $_POST['password'])."';
-
+				$userEmail = mysqli_real_escape_string($link, $_POST['email']);
+				$userPassword = mysqli_real_escape_string($link, $_POST['password']);
+				
 				$query = "insert into users(email, password) values(
-					'".mysqli_real_escape_string($link, $_POST['email'])."',
-					'".mysqli_real_escape_string($link, $_POST['password'])."'
+					'.mysqli_real_escape_string($link, $_POST['email']).',
+					'.mysqli_real_escape_string($link, $_POST['password']).'
 				)";
+
+// 				$query = "insert into users(email, password) values(
+// 					'".mysqli_real_escape_string($link, $_POST['email'])."',
+// 					'".mysqli_real_escape_string($link, $_POST['password'])."'
+// 				)";
 				
 				if(!mysqli_query($link, $query)){
 					$error = "<p>Could not sign you up.</p>";
