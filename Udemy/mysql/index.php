@@ -1,5 +1,8 @@
 <?php
 
+	session_start();
+// 	echo $_SESSION['username']; //remember, SESSION is upper case here
+
 // to test whether can connect to mysql
 	if(mysqli_connect_error()){
 		die( "error occurs");
@@ -30,7 +33,10 @@ if(array_key_exists('email', $_POST) OR array_key_exists('password', $_POST)){
 			$query = "insert into users (email, password) values('".mysqli_real_escape_string($link, $_POST['email'])."', '".mysql_real_escape_string($link, $_POST['password'])."')";
 			
 			if(mysqli_query($link, $query)){
-				echo "<p>you have signed up.</p>";
+// 				echo "<p>you have signed up.</p>";
+				
+				$_SESSION['email'] = $_POST['email'];
+				header("Location: session.php");
 			}else{
 				echo "<p>got a problem.</p>";
 			}
