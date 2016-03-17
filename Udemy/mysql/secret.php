@@ -1,4 +1,10 @@
 <?php
+	
+	session_start();
+	$error = "";		
+
+
+
 	if(array_key_exists("submit", $_POST)){
 	
 		$link=mysqli_connect("localhost", "cl54-secretdi", "NqUq^/bhe", "cl54-secretdi");
@@ -6,7 +12,7 @@
 		if(mysqli_connect_error()){
 			die("database connect error");
 		}
-		$error = "";
+
 		if(!$_POST['email']){
 			$error .= "An email address is required.<br />";
 		}
@@ -48,7 +54,15 @@
 					$query = "update users set password = '".md5(md5(mysqli_insert_id($link)).$_POST['password'])."' where id=".mysqli_insert_id($link)." limit 1";
 					
 					mysqli_query($link, $query);
-					echo "sign up successful";
+					$_SESSION['id'] = mysqli_insert_id($link);
+					
+					//stayLoggedIn is the name of checkbox on the page, value 1 is the checkbox's default value
+					if($_POST['stayLoggedIn'] == 1){
+						setcookie("id", mysqli_insert_id($link), time()+60*60*24*3);
+					}
+					// echo "sign up successful";
+					
+					header("location: loggedinpage.php");
 				}
 				
 			}
