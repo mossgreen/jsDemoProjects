@@ -2,7 +2,15 @@
 	
 	session_start();
 	$error = "";		
-
+	
+	if(array_key_exists("logout", $_GET)){
+		unset($_SESSION);
+		setcookie("id", "", time()-60*60);
+		$_COOKIE["id"] = "";
+		
+	}else if(array_key_exists("id", $_SESSION) OR array_key_exists("id", $_COOKIE)){
+		header("Location: loggedinpage.php");
+	}
 
 
 	if(array_key_exists("submit", $_POST)){
