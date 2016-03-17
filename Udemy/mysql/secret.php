@@ -25,24 +25,29 @@
 				$error = "That email address is taken.";
 			}else{
 				// 
-// 				//failed to refactor
-				$userEmail = mysqli_real_escape_string($link, $_POST['email']);
-				$userPassword = mysqli_real_escape_string($link, $_POST['password']);
+// 				//failed to refactor 01
+// 				$userEmail = mysqli_real_escape_string($link, $_POST['email']);
+// 				$userPassword = mysqli_real_escape_string($link, $_POST['password']);
 				
-				$query = "insert into users(email, password) values(
-					'.mysqli_real_escape_string($link, $_POST['email']).',
-					'.mysqli_real_escape_string($link, $_POST['password']).'
-				)";
-
-// 				$query = "insert into users(email, password) values(
-// 					'".mysqli_real_escape_string($link, $_POST['email'])."',
-// 					'".mysqli_real_escape_string($link, $_POST['password'])."'
+				//failed to refactor 02
+				// $query = "insert into users(email, password) values(
+// 					'.mysqli_real_escape_string($link, $_POST['email']).',
+// 					'.mysqli_real_escape_string($link, $_POST['password']).'
 // 				)";
+
+				$query = "insert into users(email, password) values(
+					'".mysqli_real_escape_string($link, $_POST['email'])."',
+					'".mysqli_real_escape_string($link, $_POST['password'])."'
+				)";
 				
 				if(!mysqli_query($link, $query)){
 					$error = "<p>Could not sign you up.</p>";
 				}else{
 				
+ 					
+					$query = "update users set password = '".md5(md5(mysqli_insert_id($link)).$_POST['password'])."' where id=".mysqli_insert_id($link)." limit 1";
+					
+					mysqli_query($link, $query);
 					echo "sign up successful";
 				}
 				
