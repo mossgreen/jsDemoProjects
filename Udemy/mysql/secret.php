@@ -99,9 +99,8 @@
 
 ?>
 
-
-
-
+  
+  
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -118,7 +117,25 @@
   		.container{
   			text-align:center;
   			width: 480px;
+  			margin-top:150px;
+  			color:#fff;
   		}
+  		
+  		html { 
+		  background: url(background.jpg) no-repeat center center fixed; 
+		  -webkit-background-size: cover;
+		  -moz-background-size: cover;
+		  -o-background-size: cover;
+		  background-size: cover;
+		}
+		
+		body{
+			background:none;
+		}
+		
+		#logInForm{
+			display:none;
+		}
   		
   		
   		</style>
@@ -135,11 +152,17 @@
   
   	<div class="container">
   	
-  		<h1>Secret Diary</h1>
+  		<h1>Secret mysql Database</h1>
+  		<p><strong>This is a portal page for my website. You can register and log in the database.</strong></p>
+  		
   	
   	
 		<div id="error"><?php echo $error; ?></div>
-		<form method="post">
+		
+		
+		<form method="post" id="signUpForm">
+		
+			<p>Sign up, if you have interest.</p>
 			<fieldset class="form-group">
 				<input class="form-control" type="email" name="email" placeholder="Your Email" />
 			</fieldset>
@@ -154,13 +177,18 @@
 				</label>
 			</div>
 			
-			
+			<input type="hidden" name="signUp" value="1" />
 			<fieldset class="form-group">
-				<input type="hidden" name="signUp" value="1" />
 				<input class="btn btn-success" type="submit" name="submit" value="sign up" />
 			</fieldset>
+			
+			<p><a class="toggleForms">Log in</a></p>
 		</form>
-		<form method="post">
+		
+		
+		<form method="post" id="logInForm" >
+		
+			<p>log in, with your username and password.</p>
 			<fieldset class="form-group">
 				<input class="form-control" type="email" name="email" placeholder="Your Email" />
 			</fieldset>
@@ -174,12 +202,13 @@
 				</label>
 			</div>
 			
-			<fieldset class="form-group">
-				<input type="hidden" name="signUp" value="0" />
-			</fieldset>
+			<input type="hidden" name="signUp" value="0" />
+			
 			<fieldset class="form-group">
 				<input class="btn btn-success" type="submit" name="submit" value="log in" />
 			</fieldset>
+			
+			<p><a class="toggleForms">Sign up</a></p>
 		</form>
 	</div>
 	
@@ -188,9 +217,21 @@
     <!-- jQuery first, then Bootstrap JS. -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
+  	
+  	<script>
+  	
+  		$(".toggleForms").click(function(){
+  		
+  			
+//   		alert("hi");
+  			$("#signUpForm").toggle();
+  			$("#logInForm").toggle();
+  		});
+  	
+  	</script>
+  
   </body>
 </html>
-
 
 
 
