@@ -102,23 +102,96 @@
 
 
 
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+  
+  		<style type="text/css">
+  		
+  		.container{
+  			text-align:center;
+  			width: 480px;
+  		}
+  		
+  		
+  		</style>
+  
+  
+  
+  
+  
+  
+  
+  
+  </head>
+  <body>
+  
+  	<div class="container">
+  	
+  		<h1>Secret Diary</h1>
+  	
+  	
+		<div id="error"><?php echo $error; ?></div>
+		<form method="post">
+			<fieldset class="form-group">
+				<input class="form-control" type="email" name="email" placeholder="Your Email" />
+			</fieldset>
+			<fieldset class="form-group">	
+				<input class="form-control" type="password" name="password" placeholder="Password" />
+			</fieldset>
+			
+			
+			<div class="checkbox">
+				<label>
+					<input type="checkbox"  name="stayLoggedIn" value=1>  stay logged in
+				</label>
+			</div>
+			
+			
+			<fieldset class="form-group">
+				<input type="hidden" name="signUp" value="1" />
+				<input class="btn btn-success" type="submit" name="submit" value="sign up" />
+			</fieldset>
+		</form>
+		<form method="post">
+			<fieldset class="form-group">
+				<input class="form-control" type="email" name="email" placeholder="Your Email" />
+			</fieldset>
+			<fieldset class="form-group">
+				<input class="form-control" type="password" name="password" placeholder="Password" />
+			</fieldset>
+
+			<div class="checkbox">
+				<label>
+					<input type="checkbox"  name="stayLoggedIn" value=1>  stay logged in
+				</label>
+			</div>
+			
+			<fieldset class="form-group">
+				<input type="hidden" name="signUp" value="0" />
+			</fieldset>
+			<fieldset class="form-group">
+				<input class="btn btn-success" type="submit" name="submit" value="log in" />
+			</fieldset>
+		</form>
+	</div>
+	
+	
+	
+    <!-- jQuery first, then Bootstrap JS. -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
+  </body>
+</html>
 
 
 
 
 
-<div id="error"><?php echo $error; ?></div>
-<form method="post">
-	<input type="email" name="email" placeholder="Your Email" />
-	<input type="password" name="password" placeholder="Password" />
-	<input type="checkbox" name="stayLoggedIn" value=1 />
-	<input type="hidden" name="signUp" value="1" />
-	<input type="submit" name="submit" value="sign up" />
-</form>
-<form method="post">
-	<input type="email" name="email" placeholder="Your Email" />
-	<input type="password" name="password" placeholder="Password" />
-	<input type="checkbox" name="stayLoggedIn" value=1 />
-		<input type="hidden" name="signUp" value="0" />
-	<input type="submit" name="submit" value="log in" />
-</form>
