@@ -8,7 +8,7 @@
 		setcookie("id", "", time()-60*60);
 		$_COOKIE["id"] = "";
 		
-	}else if(array_key_exists("id", $_SESSION) OR array_key_exists("id", $_COOKIE)){
+	}else if((array_key_exists("id", $_SESSION) AND $_SESSION['id']) OR ( (array_key_exists("id", $_COOKIE) AND $_COOKIE['id'])){
 		header("Location: loggedinpage.php");
 	}
 
@@ -32,22 +32,16 @@
 			$error = "<p>There were errors in your form:</p>";
 		}else{
 		
+			if($_POST['signUp']){
+				
+			
+		
 			$query = "select id from users where email = '".mysqli_real_escape_string($link, $_POST['email'])."' limit 1";
 			$result = mysqli_query($link, $query);
 			
 			if(mysqli_num_rows($result) > 0){
 				$error = "That email address is taken.";
 			}else{
-				// 
-// 				//failed to refactor 01
-// 				$userEmail = mysqli_real_escape_string($link, $_POST['email']);
-// 				$userPassword = mysqli_real_escape_string($link, $_POST['password']);
-				
-				//failed to refactor 02
-				// $query = "insert into users(email, password) values(
-// 					'.mysqli_real_escape_string($link, $_POST['email']).',
-// 					'.mysqli_real_escape_string($link, $_POST['password']).'
-// 				)";
 
 				$query = "insert into users(email, password) values(
 					'".mysqli_real_escape_string($link, $_POST['email'])."',
@@ -74,6 +68,31 @@
 				}
 				
 			}
+			}// end of signUp 
+			else{
+// 				echo "logging in...";
+// 				print_r($_POST);
+				$query = "select * from users where email ='".mysqli_real_escape_string($link, $_POST['email'])."'";
+				$result = mysqli_query($link, $query);
+				$row = mysqli_fetch_array($result);
+				if(isset($row)){
+					$hashedPassword = md5(md5($row['id']).$_POST['password']);
+					if($hashedPassword == $row['password']){
+						$_SESSION['id'] = $row['id'];
+						
+						if($_POST['stayLoggedIn'] == '1'){
+							setcookie("id", $row['id'], time()+60*60*24*3);
+							
+						}
+						header("Location: loggedinpage.php");
+					}else{
+						$error = "that email/passowrd combination could not be found.";
+
+					}
+				}else{
+					$error = "that email/passowrd combination could not be found.";
+				}
+			}
 		}
 	}
 
@@ -92,6 +111,14 @@
 <form method="post">
 	<input type="email" name="email" placeholder="Your Email" />
 	<input type="password" name="password" placeholder="Password" />
-	<input type="checkbox" name="styleLoggedIn" value=1 />
+	<input type="checkbox" name="stayLoggedIn" value=1 />
+	<input type="hidden" name="signUp" value="1" />
 	<input type="submit" name="submit" value="sign up" />
+</form>
+<form method="post">
+	<input type="email" name="email" placeholder="Your Email" />
+	<input type="password" name="password" placeholder="Password" />
+	<input type="checkbox" name="stayLoggedIn" value=1 />
+		<input type="hidden" name="signUp" value="0" />
+	<input type="submit" name="submit" value="log in" />
 </form>
