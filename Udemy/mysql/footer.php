@@ -13,6 +13,20 @@
   			$("#signUpForm").toggle();
   			$("#logInForm").toggle();
   		});
+  		
+  		$("#diary").bind('input propertychanged', function(){
+//   			alert("changed");
+			
+			$.ajax({
+				method:"POST",
+				url:"updatedatabase.php"
+				data:{content: $("#diary").val()}
+			}).done(function(msg){
+					alert("data saved: " +msg);
+				
+				});
+			
+  		});
   	
   	</script>
   

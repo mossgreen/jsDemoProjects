@@ -14,12 +14,8 @@
 
 
 	if(array_key_exists("submit", $_POST)){
-	
-		$link=mysqli_connect("localhost", "cl54-secretdi", "NqUq^/bhe", "cl54-secretdi");
-	
-		if(mysqli_connect_error()){
-			die("database connect error");
-		}
+
+		 include("");
 
 		if(!$_POST['email']){
 			$error .= "An email address is required.<br />";
@@ -103,7 +99,7 @@
   
 <?php include("header.php"); ?>
   
-  	<div class="container">
+  	<div class="container" id="homePageContainer" >
   	
   		<h1>Secret mysql Database</h1>
   		<p><strong>This is a portal page for my website. You can register and log in the database.</strong></p>
@@ -165,27 +161,6 @@
 		</form>
 	</div>
 	
-	
-	
-    <!-- jQuery first, then Bootstrap JS. -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
-  	
-  	<script>
-  	
-  		$(".toggleForms").click(function(){
-  		
-  			
-//   		alert("hi");
-  			$("#signUpForm").toggle();
-  			$("#logInForm").toggle();
-  		});
-  	
-  	</script>
-  
-  </body>
-</html>
-
-
+<?php include("footer.php); ?>
 
 
