@@ -10,6 +10,22 @@
 		header("Location: secret.php");
 	}
 
+	include("header.php");
+	
+?>
+	
+	<div class="container-fluid">
+		<textarea id="diary" class="form-control" ></textarea>
+	
+	
+	
+	
+	
+	</div>
+	
+<?php
+	
+	include("footer.php");
 
 
 ?>

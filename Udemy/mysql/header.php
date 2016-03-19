@@ -14,8 +14,11 @@
   		.container{
   			text-align:center;
   			width: 480px;
-  			margin-top:150px;
   			color:#fff;
+  		}
+  		
+  		#homePageContainer{
+  			margin-top:150px;
   		}
   		
   		html { 
@@ -36,6 +39,11 @@
 		
 		.toggleForms{
 			font-weight:bold;
+		}
+		
+		#diary{
+			width:100%;
+			height:100%;
 		}
   		
   		
