@@ -1,122 +1,142 @@
-<!doctype html>
-<html>
-<head>
-	<title>My weather page</title>
-	
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<?php
+    
+    $weather = "";
+    $error = "";
+    
+    if ($_GET['city']) {
+        
+        $city = str_replace(' ', '', $_GET['city']);
+        
+        $file_headers = @get_headers("http://www.weather-forecast.com/locations/".$city."/forecasts/latest");
+        
+        
+        if($file_headers[0] == 'HTTP/1.1 404 Not Found') {
+    
+            $error = "That city could not be found.";
 
-	<!-- Optional theme -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-	
-	<style>
-	
-		html,body{
-			height:100%;
-		}
-		.container{
-			background-image:url("background.jpg");
-			width:100%;
-			height:100%;
-			background-size:cover;
-			background-position:center;
-			padding-top:150px;
-		}
-		
-		.center{
-			text-align:center;
-		}
-		
-		.white{
-			color:blue;
-		}
-		
-		p{
-			padding-top:15px;
-			padding-bottom: 15px;
-		}
-		
-		button{
-			margin-top:20px;
-		}
-		
-		.alert{
-			margin-top:20px;
-			display:none;
-		}
-	
-	</style>
+        } else {
+        
+        $forecastPage = file_get_contents("http://www.weather-forecast.com/locations/".$city."/forecasts/latest");
+        
+        $pageArray = explode('3 Day Weather Forecast Summary:</b><span class="read-more-small"><span class="read-more-content"> <span class="phrase">', $forecastPage);
+            
+        if (sizeof($pageArray) > 1) {
+        
+                $secondPageArray = explode('</span></span></span>', $pageArray[1]);
+            
+                if (sizeof($secondPageArray) > 1) {
+
+                    $weather = $secondPageArray[0];
+                    
+                } else {
+                    
+                    $error = "That city could not be found.";
+                    
+                }
+            
+            } else {
+            
+                $error = "That city could not be found.";
+            
+            }
+        
+        }
+        
+    }
 
 
-</head>
-<body>
-
-	<div class="container">
-		<div class="row">
-			<div class="col-md-6 col-md-offset-3 center">
-				<h1 class="center white">Weather Predictor</h1>
-				<p class="lead center white">Enter you city below to get a forecast.</p>
-				
-				<form>
-					<div class="form-group">
-						<input type="text" class="form-control" name="city" id="city" placeholder="Eg. Auckland, New York, HongKong..."/>
-					</div>
-					
-					<button id="findMyWeather" class="btn btn-success btn-lg center">Find your weather</button>
-				</form>
-			
-				
-				<div id="success" class="alert alert-success">Success!</div>
-				<div id="fail" class="alert alert-danger">Could not find data in that city!</div>
-				<div id="noCity" class="alert alert-danger">type in a city !</div>
-
-			</div>
-			
-			
-		</div>
-	
-	</div>
+?>
 
 
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
 
+      <title>Weather Scraper</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+      
+      <style type="text/css">
+      
+      html { 
+          background: url(background.jpeg) no-repeat center center fixed; 
+          -webkit-background-size: cover;
+          -moz-background-size: cover;
+          -o-background-size: cover;
+          background-size: cover;
+          }
+        
+          body {
+              
+              background: none;
+              
+          }
+          
+          .container {
+              
+              text-align: center;
+              margin-top: 100px;
+              width: 450px;
+              
+          }
+          
+          input {
+              
+              margin: 20px 0;
+              
+          }
+          
+          #weather {
+              
+              margin-top:15px;
+              
+          }
+         
+      </style>
+      
+  </head>
+  <body>
+    
+      <div class="container">
+      
+          <h1>What's The Weather?</h1>
+          
+          
+          
+          <form>
+  <fieldset class="form-group">
+    <label for="city">Enter the name of a city.</label>
+    <input type="text" class="form-control" name="city" id="city" placeholder="Eg. London, Tokyo" value = "<?php echo $_GET['city']; ?>">
+  </fieldset>
+  
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+      
+          <div id="weather"><?php 
+              
+              if ($weather) {
+                  
+                  echo '<div class="alert alert-success" role="alert">
+  '.$weather.'
+</div>';
+                  
+              } else if ($error) {
+                  
+                  echo '<div class="alert alert-danger" role="alert">
+  '.$error.'
+</div>';
+                  
+              }
+              
+              ?></div>
+      </div>
 
-
-
-<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
-
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-<script>
-	$("#findMyWeather").click(function(event){
-		event.preventDefault();
-		$(".alert").hide();
-		
-		if($("#city").val() != ""){
-			$.get("scraper.php?city=" + $("#city").val(), function(data){
-				
-				if (data == ""){
-					
-					$("#fail").fadeIn();
-				}else{
-				
-					$("#success").html(data).fadeIn();
-				}
-			});			
-		}else{
-			
-			$("#noCity").fadeIn();
-		}
-		
-		
-		
-		
-
-	});
-</script>
-
-
-</body>
+    <!-- jQuery first, then Bootstrap JS. -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
+  </body>
 </html>
