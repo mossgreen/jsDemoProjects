@@ -1,11 +1,18 @@
 <?php
-    
+
+
+    // claim two variables, $weather and $error  
     $weather = "";
     $error = "";
     
+    // $_GET and $_POST are used to collect form-data
+    // if data from form has the content of 'city'
     if ($_GET['city']) {
-        
-        $city = str_replace(' ', '', $_GET['city']);
+
+
+        //The str_replace() function replaces some characters with some other characters in a string.
+        // here, delete the space in 'city'
+        $city = str_replace(' ', '', $_GET['city']); 
         
         $file_headers = @get_headers("http://www.weather-forecast.com/locations/".$city."/forecasts/latest");
         
@@ -16,30 +23,32 @@
 
         } else {
         
-        $forecastPage = file_get_contents("http://www.weather-forecast.com/locations/".$city."/forecasts/latest");
-        
-        $pageArray = explode('3 Day Weather Forecast Summary:</b><span class="read-more-small"><span class="read-more-content"> <span class="phrase">', $forecastPage);
-            
-        if (sizeof($pageArray) > 1) {
-        
-                $secondPageArray = explode('</span></span></span>', $pageArray[1]);
-            
-                if (sizeof($secondPageArray) > 1) {
+          //The file_get_contents() reads a file into a string
+          $forecastPage = file_get_contents("http://www.weather-forecast.com/locations/".$city."/forecasts/latest");
+          
+          //Break a string into an array, use the text to split the $forecastPage into two pieces
+          $pageArray = explode('3 Day Weather Forecast Summary:</b><span class="read-more-small"><span class="read-more-content"> <span class="phrase">', $forecastPage);
+              
+          if (sizeof($pageArray) > 1) {
+          
+              $secondPageArray = explode('</span></span></span>', $pageArray[1]);
+              
+              if (sizeof($secondPageArray) > 1) {
 
-                    $weather = $secondPageArray[0];
-                    
-                } else {
-                    
-                    $error = "That city could not be found.";
-                    
-                }
-            
-            } else {
-            
-                $error = "That city could not be found.";
-            
-            }
-        
+                  $weather = $secondPageArray[0];
+                  
+              } else {
+                  
+                  $error = "That city could not be found.";
+                  
+              }
+              
+          } else {
+              
+              $error = "That city could not be found.";
+              
+          }
+          
         }
         
     }
@@ -62,20 +71,24 @@
       
       <style type="text/css">
       
-      html { 
-          background: url(background.jpeg) no-repeat center center fixed; 
-          -webkit-background-size: cover;
-          -moz-background-size: cover;
-          -o-background-size: cover;
-          background-size: cover;
-          }
+
+          /*set backgroud img and set it to center*/
+          html { 
+              background: url(background.jpeg) no-repeat center center fixed; 
+              -webkit-background-size: cover;
+              -moz-background-size: cover;
+              -o-background-size: cover;
+              background-size: cover;
+              }
         
+
           body {
               
               background: none;
               
           }
           
+          /*set container width and margin-top*/
           .container {
               
               text-align: center;
@@ -105,34 +118,40 @@
       
           <h1>What's The Weather?</h1>
           
-          
-          
           <form>
-  <fieldset class="form-group">
-    <label for="city">Enter the name of a city.</label>
-    <input type="text" class="form-control" name="city" id="city" placeholder="Eg. London, Tokyo" value = "<?php echo $_GET['city']; ?>">
-  </fieldset>
-  
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+
+            <!-- The <fieldset> tag is used to group related elements in a form, or draws a box around the related elements. -->
+            <fieldset class="form-group">
+
+              <!-- label to show text in this form -->
+              <label for="city">Enter the name of a city.</label>
+
+              <!-- input to accept data in this form -->
+              <!-- give value to php server -->
+              <input type="text" class="form-control" name="city" id="city" placeholder="Eg. London, Tokyo" value = "<?php echo $_GET['city']; ?>">
+            </fieldset>
+            
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
       
-          <div id="weather"><?php 
+          <div id="weather">
+
+          <!-- if $weather is exist, show text of $weather -->
+          <?php 
               
               if ($weather) {
                   
-                  echo '<div class="alert alert-success" role="alert">
-  '.$weather.'
-</div>';
+                  echo '<div class="alert alert-success" role="alert">'.$weather.'</div>';
                   
               } else if ($error) {
                   
-                  echo '<div class="alert alert-danger" role="alert">
-  '.$error.'
-</div>';
+                  echo '<div class="alert alert-danger" role="alert">'.$error.'</div>';
                   
               }
               
-              ?></div>
+          ?>
+
+          </div> <!-- end of #weather -->
       </div>
 
     <!-- jQuery first, then Bootstrap JS. -->
