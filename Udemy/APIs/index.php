@@ -12,19 +12,26 @@
         //decode the urlContent, which is a json file
         $weatherArray = json_decode($urlContents,true);
 
-        //get weatherDescription from json file
-        $weatherDescription = $weatherArray['weather'][0]['description'];
+        if($weatherArray['cod'] == 200){
 
-        //wind speed
-        $windSpeed = $weatherArray['wind']['speed'];
+            //get weatherDescription from json file
+            $weatherDescription = $weatherArray['weather'][0]['description'];
 
-        //output the weather info
-        $weather = "The weather in ".$_GET['city']." is currently'".$weatherDescription."'.";
+            //wind speed
+            $windSpeed = $weatherArray['wind']['speed'];
 
-        //temperature in celcius
-        $tempInCelcius = intval($weatherArray['main']['temp'] -273.15);
+            //output the weather info
+            $weather = "The weather in ".$_GET['city']." is currently'".$weatherDescription."'.";
 
-        $weather .= " The temperature is ".$tempInCelcius."&deg;C and the wind speed is ".$windSpeed."M/S.";
+            //temperature in celcius
+            $tempInCelcius = intval($weatherArray['main']['temp'] -273.15);
+
+            $weather .= " The temperature is ".$tempInCelcius."&deg;C and the wind speed is ".$windSpeed."M/S.";
+
+        }else{
+
+          $error = "Could not find city, please try again.";
+        }
 
 
 
