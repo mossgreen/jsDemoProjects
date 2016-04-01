@@ -18,6 +18,11 @@
         //output the weather info
         $weather = "The weather in ".$_GET['city']." is currently'".$weatherDescription."'.";
 
+        //temperature in celcius
+        $tempInCelcius = $weatherArray['main']['temp'] -273.15;
+
+        $weather .= " The temperature is ".$tempInCelcius."&deg;C";
+
     }
 
 
