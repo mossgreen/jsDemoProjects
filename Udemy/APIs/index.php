@@ -4,9 +4,12 @@
     $error = "";
     
     if ($_GET['city']) {
+
+        //encode city name, ignor space 
+        $cityName = urlencode($_GET['city']);
         
         //get content from the url when user input city name
-        $urlContents = file_get_contents("http://api.openweathermap.org/data/2.5/weather?q=".$_GET['city'].",uk&appid=fb703f4d7e1578de2e376ab69a746d86");
+        $urlContents = file_get_contents("http://api.openweathermap.org/data/2.5/weather?q=".$cityName.",uk&appid=fb703f4d7e1578de2e376ab69a746d86");
         
         
         //decode the urlContent, which is a json file
