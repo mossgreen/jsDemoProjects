@@ -15,13 +15,18 @@
         //get weatherDescription from json file
         $weatherDescription = $weatherArray['weather'][0]['description'];
 
+        //wind speed
+        $windSpeed = $weatherArray['wind']['speed'];
+
         //output the weather info
         $weather = "The weather in ".$_GET['city']." is currently'".$weatherDescription."'.";
 
         //temperature in celcius
-        $tempInCelcius = $weatherArray['main']['temp'] -273.15;
+        $tempInCelcius = intval($weatherArray['main']['temp'] -273.15);
 
-        $weather .= " The temperature is ".$tempInCelcius."&deg;C";
+        $weather .= " The temperature is ".$tempInCelcius."&deg;C and the wind speed is ".$windSpeed."M/S.";
+
+
 
     }
 
