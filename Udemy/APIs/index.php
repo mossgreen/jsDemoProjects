@@ -8,9 +8,15 @@
         //get content from the url when user input city name
         $urlContents = file_get_contents("http://api.openweathermap.org/data/2.5/weather?q=".$_GET['city'].",uk&appid=fb703f4d7e1578de2e376ab69a746d86");
         
+        
+        //decode the urlContent, which is a json file
         $weatherArray = json_decode($urlContents,true);
 
-        print_r($weatherArray);
+        //get weatherDescription from json file
+        $weatherDescription = $weatherArray['weather'][0]['description'];
+
+        //output the weather info
+        $weather = "The weather in ".$_GET['city']." is currently'".$weatherDescription."'.";
 
     }
 
