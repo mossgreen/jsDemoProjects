@@ -21,9 +21,11 @@
 
     <script type="text/javascript">
     	$.ajax({
-    		url:"https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyDYC6V2eHKnyIddJknlFgp8ydry7IgO6eE",
+    		url:"https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyCWh6db9wV8sfXteq2h5akBOyTM9mdGG0E",
     		type:"GET",
     		success:function(data){
+
+    			console.log("GG0E");
     			console.log(data)
     		}
 
