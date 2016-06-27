@@ -3,9 +3,9 @@
 <head>
 	<title>domReady</title>
 	<script type="text/javascript">
-		setTimeout(function(){
-document.getElementById("header").style.color="red";
-		}, 3000)
+		window.onload = function(){
+			document.getElementById("header").style.color="red";
+		}
 	</script>
 
 </head>
