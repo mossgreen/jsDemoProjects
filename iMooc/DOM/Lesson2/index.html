@@ -4,13 +4,34 @@
 	<title>NodeTye</title>
 </head>
 <body>
-<div id="container">this is an element node</div>
-<script type="text/javascript">
-	
+	<!-- nodename, nodevalue test -->
+	<div id="container">this is an element node</div>
+	<script type="text/javascript">
+
+	//not work with IE
+	// var divNode = document.getElementById("container");
+	// if(divNode.nodeType == Node.ELEMENT_NODE){
+	// 	alert("this is a node.")
+	// }
+
+	// for ie brower
 	var divNode = document.getElementById("container");
-	if(divNode.nodeType == Node.ELEMENT_NODE){
-		alert("this is a node.")
-	}
+	console.log(divNode.nodeName+"/"+divNode.nodeValue);
+
+
+	var attrNode = divNode.attributes[0];
+	console.log(attrNode.nodeName +"/"+attrNode.nodeValue)
+
+	var textNode = divNode.childNodes[0];
+	console.log(textNode.nodeName +"/"+ textNode.nodeValue)
+
+	var commentNode = document.body.childNodes[1];
+	console.log(commentNode.nodeName + "/"+commentNode.nodeValue)
+
+	console.log(document.doctype.nodeName + "/" +document.doctype.nodeValue);
+
+	var frag = document.createDocumentFragment();
+	console.log(frag.nodeName + "/" + frag.nodeValue)
 </script>
 
 </body>
