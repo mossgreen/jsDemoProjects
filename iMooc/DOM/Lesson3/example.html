@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Example</title>
+	<script type="text/javascript" src="domReady.js"></script>
+
+</head>
+<body>
+<div id="showMsg"></div>
+<div>
+	<img src="images/1.jpg" alt="">
+	<img src="images/2.jpg" alt="">
+	<img src="images/3.jpg" alt="">
+	<img src="images/4.jpg" alt="">
+	<img src="images/5.jpg" alt="">
+	<img src="images/6.jpg" alt="">
+</div>
+
+<script type="text/javascript">
+	
+	var d = document;
+	var msgBox = d.getElementById("showMsg");
+	var imgs = d.getElementsByName("img");
+	var time1= null, time2 = null;
+
+	myReady(function(){
+		msgBox.innerHTML += "dom ready!<br>";
+		time1 = new Date().getTime();
+		msgBox.innerHTML += "time stemp: "+time1 + "<br>";
+	});
+
+	window.onload = function(){
+		msgBox.innerHTML += "onload is done. <br>";
+		time2 = new Date().getTime();
+		msgBox.innerHTML += "time stemp: "+time2+"<br>";
+		msgBox.innerHTML += "domReady is faster than onload about: "+(time2 - time1)+" ms<br>";
+	};
+
+</script>
+
+</body>
+</html>
