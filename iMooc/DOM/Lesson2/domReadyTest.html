@@ -2,13 +2,15 @@
 <html>
 <head>
 	<title>domReady</title>
-
 	<script type="text/javascript">
-		document.getElementById("header").style.color="red";
+		setTimeout(function(){
+document.getElementById("header").style.color="red";
+		}, 3000)
 	</script>
+
 </head>
 <body>
-<h1 id="header">this is h1</h1>
-
+	<h1 id="header">this is h1</h1>
+	
 </body>
 </html>
