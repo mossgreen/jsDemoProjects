@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IsElement</title>
+</head>
+<body>
+<div id="test">aaa</div> <!-- this is a comment -->
+<script type="text/javascript">
+	var isElement = function(el){
+		return !!el && el.nodeType ===1;
+	}
+	var a ={
+		nodeType:1
+	}
+	console.log(isElement(document.getElementById("test")));
+	console.log(isElement(document.getElementById("test").nextSibling))
+	console.log(isElement(a));
+</script>
+</body>
+</html>
