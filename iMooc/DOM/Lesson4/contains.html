@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>contains</title>
+</head>
+<body>
+	<div id="p-node">
+		<div id="c-node">content in c node</div>
+	</div>
+
+	<script type="text/javascript">
+	var pNode = document.getElementById("p-node");
+	var cNode = document.getElementById("c-node").childNodes[0];
+	alert(pNode.contains(cNode));
+	</script>
+</body>
+</html>
