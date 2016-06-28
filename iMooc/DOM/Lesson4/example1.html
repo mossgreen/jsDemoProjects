@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IsXML</title>
+</head>
+<body>
+
+	<div id="test">isXML</div>
+
+
+	<script type="text/javascript">
+		// not a good to implement this method
+		// var isXML = function(elem){
+		// 	var documentElement = elem && (elem.ownerDocument || elem).documentElement;
+		// 	return documentElement ? documentElement.nodeName !== "HTML" : false;
+		// };
+
+		//good way to do that
+		var isXML = function(doc){
+			return doc.createElement("p").nodeName !== doc.createElement("P").nodeName;
+		}
+
+		console.log(isXML(document));
+	</script>
+
+</body>
+</html>
