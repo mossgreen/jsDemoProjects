@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>run js stack</title>
+	<script type="text/javascript" src="stack.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+
+		var stackTest = new Stack();
+		console.log(stackTest.isEmpty());
+
+		stackTest.push(5);
+		stackTest.push(8);
+		console.log(stackTest.peek());
+
+		stackTest.push(11);
+		console.log(stackTest.size());
+		console.log(stackTest.isEmpty());
+
+		stackTest.pop();
+		stackTest.pop();
+		console.log(stackTest)
+
+		stackTest.print();
+	</script>
+
+</body>
+</html>
