@@ -1,4 +1,4 @@
-alert("hi");
+
 
 function Stack(){
 
