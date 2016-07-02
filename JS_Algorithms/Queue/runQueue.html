@@ -7,7 +7,7 @@
 <body>
 
 	<!-- test queue.js -->
-	<script type="text/javascript"  >
+	<script type="text/javascript">
 		var queue = new Queue();
 		console.log(queue.isEmpty());
 		queue.enqueue(5);
@@ -16,6 +16,18 @@
 		queue.enqueue(4);
 		queue.dequeue();
 		queue.print();
+	</script>
+
+	<!-- test for PriorityQueue.js -->
+	<script type="text/javascript" src="priorityQueue.js"></script>
+	<script type="text/javascript">
+		var priorityQueue = new PriorityQueue();
+		priorityQueue.enqueue("moss" ,2);
+		console.log(priorityQueue.print());
+		// priorityQueue.enqueue("moss" ,2);
+		// priorityQueue.enqueue("jiajia", 1);
+		// priorityQueue.enqueue("huahua",1);
+		// priorityQueue.print();
 	</script>
 </body>
 </html>
