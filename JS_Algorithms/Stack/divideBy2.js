@@ -5,7 +5,7 @@ function divideBy2(decNumber){
 	binaryString='';
 
 	while(decNumber > 0){
-		rem = Math.floor(decNumber % 2);
+		rem = Math.floor(decNumber % 2); 
 		console.log("rem = " + rem);
 		remStack.push(rem);
 		
