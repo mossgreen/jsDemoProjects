@@ -54,7 +54,7 @@ function PriorityQueue(){
 		for(var i; i<items.length; i++){
 			string += items[i].element.toString()+' ';
 		}
-		console.log(string);
+		return string;
 	};
 
 }

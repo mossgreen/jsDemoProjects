@@ -22,8 +22,11 @@
 	<script type="text/javascript" src="priorityQueue.js"></script>
 	<script type="text/javascript">
 		var priorityQueue = new PriorityQueue();
-		priorityQueue.enqueue("moss" ,2);
-		console.log(priorityQueue.print());
+		console.log(priorityQueue.isEmpty());
+		priorityQueue.enqueue("jiajia", 1);
+		console.log(priorityQueue.isEmpty());
+		priorityQueue.dequeue();
+		console.log(priorityQueue.isEmpty());
 		// priorityQueue.enqueue("moss" ,2);
 		// priorityQueue.enqueue("jiajia", 1);
 		// priorityQueue.enqueue("huahua",1);
