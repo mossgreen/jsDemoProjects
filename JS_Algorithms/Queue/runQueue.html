@@ -6,5 +6,16 @@
 </head>
 <body>
 
+	<!-- test queue.js -->
+	<script type="text/javascript"  >
+		var queue = new Queue();
+		console.log(queue.isEmpty());
+		queue.enqueue(5);
+		console.log(queue.isEmpty());
+
+		queue.enqueue(4);
+		queue.dequeue();
+		queue.print();
+	</script>
 </body>
 </html>

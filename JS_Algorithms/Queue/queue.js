@@ -6,7 +6,7 @@ function Queue(){
 	};
 
 	this.dequeue = function(){
-		items.pop();
+		items.shift();
 	};
 
 	this.front = function(){
