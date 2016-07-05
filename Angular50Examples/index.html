@@ -13,7 +13,8 @@
 		var textInputElement = document.getElementById('textInput')
 
 		textInputElement.addEventListener('keyup', function(){
-			console.log('got keyup event.')
+			var text = textInputElement.value;
+			console.log('New text is  "' + text+ '".');
 		});
 	</script>
 </body>
