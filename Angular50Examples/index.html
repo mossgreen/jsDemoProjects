@@ -6,15 +6,16 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
 </head>
 <body>
-	Name: <input id="textInput" type="text"></input>
-	Hello World.
+	Name: <input id="textInput" type="text"></input><br>
+	Hello <span id="nameDiv"></span>.
 
 	<script type="text/javascript">
-		var textInputElement = document.getElementById('textInput')
+		var textInputElement = document.getElementById('textInput'),
+		nameDivElement = document.getElementById('nameDiv');
 
 		textInputElement.addEventListener('keyup', function(){
 			var text = textInputElement.value;
-			console.log('New text is  "' + text+ '".');
+			nameDivElement.innerHTML = text;
 		});
 	</script>
 </body>
