@@ -6,7 +6,15 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
 </head>
 <body>
-	Name: <input type="text"></input>
+	Name: <input id="textInput" type="text"></input>
 	Hello World.
+
+	<script type="text/javascript">
+		var textInputElement = document.getElementById('textInput')
+
+		textInputElement.addEventListener('keyup', function(){
+			console.log('got keyup event.')
+		});
+	</script>
 </body>
 </html>
