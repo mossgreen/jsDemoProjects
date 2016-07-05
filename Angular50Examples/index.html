@@ -4,15 +4,29 @@
 <head>
 	<title>Html Starter</title>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.3.3/backbone-min.js"></script>
 </head>
 <body>
 	Name: <input id="textInput" type="text"></input><br>
 	Hello <span id="nameDiv"></span>.
 
 	<script type="text/javascript">
-		$('#textInput').on('keyup', function(){
-			$('#nameDiv').html($('#textInput').val());
+		//model
+		var model = new backbone.Model({
+			name:''
+		});
+
+		//view
+		model.ono('change:name', function(){
+			$('#nameSpan').html(model.get('name'));
+		});
+
+		//controller
+		$('#textInput').on('keyup',function(){
+			model.set('name', $('#textInput').val());
 		});
 	</script>
 </body>
