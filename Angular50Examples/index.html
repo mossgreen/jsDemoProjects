@@ -8,12 +8,20 @@
 		var nameApp = angular.module('nameApp',[]);
 		nameApp.controller('NameCtrl', function($scope){
 			$scope.firstName = 'moss';
-			$scope.lastName = 'gu';
+			$scope.$watch('lastName', function(newValue, oldValue){
+				console.log('new value is '+ newValue);
+				console.log('old value is '+ oldValue);
+
+			});
+
+			setTimeout(function(){
+				$scope.lastName = 'gu';
+			}, 1000);
 		});
 	</script>
 </head>
-<body ng-controller="NameCtrl">
-	<div >
+<body >
+	<div ng-controller="NameCtrl">
 		First Name: <input ng-model="firstName" type="text"></input><br>
 		Last Name: <input ng-model="lastName" type="text"></input><br>
 		Hello {{firstName}} {{lastName}}.
