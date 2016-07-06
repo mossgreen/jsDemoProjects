@@ -7,24 +7,24 @@
 	<script type="text/javascript">
 		var nameApp = angular.module('nameApp',[]);
 		nameApp.controller('NameCtrl', function($scope){
-			$scope.firstName = 'moss';
-			$scope.$watch('lastName', function(newValue, oldValue){
-				console.log('new value is '+ newValue);
-				console.log('old value is '+ oldValue);
+			$scope.names = ['feifei','huahua','jiajia'];
 
-			});
-
-			setTimeout(function(){
-				$scope.lastName = 'gu';
-			}, 1000);
+			$scope.addName = function(){
+				$scope.names.push($scope.enteredName);
+			};
 		});
 	</script>
 </head>
 <body >
 	<div ng-controller="NameCtrl">
-		First Name: <input ng-model="firstName" type="text"></input><br>
-		Last Name: <input ng-model="lastName" type="text"></input><br>
-		Hello {{firstName}} {{lastName}}.
+		<ul>
+			<li ng-repeat="name in names">{{name}}</li>
+		</ul>
+
+		<form ng-submit="addName()">
+			<input type="text" ng-model="enteredName">
+			<input type="submit" value="add">
+		</form>
 	</div>	
 </body>
 </html>
