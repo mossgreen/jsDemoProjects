@@ -6,23 +6,23 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
 	<script type="text/javascript">
 		var countryApp = angular.module('countryApp',[]);
-		countryApp.controller('CountryCtrl',['$scope', '$http',function(s, http){
-			http.get('countries.json').success(function(data){
-				s.countries = data;
+		countryApp.controller('CountryCtrl',['$scope', '$http',function(sForScopt, hForhttp){
+			hForhttp.get('countries.json').success(function(data){
+				sForScopt.countries = data;
 			});
 		}]
-	);	
-</script>
+		);	
+	</script>
 </head>		
 <body >
 	<div ng-controller="CountryCtrl">
-
+	search:<input ng-model="query" type="text" /><br>
 		<table>
 			<tr>
 				<th>Country</th>
 				<th>Population</th>
 			</tr>
-			<tr ng-repeat="country in countries">
+			<tr ng-repeat="country in countries|filter:query">
 				<td>{{country.name}}</td>
 				<td>{{country.id}}</td>
 			</tr>
