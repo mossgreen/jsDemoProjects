@@ -22,27 +22,25 @@
           });
       });
 
-      conntryApp.factory('countries', function($http){
+      countryApp.factory('countries', function($http){
         return {
-          list:function(callback){
+          list: function(callback){
             $http.get('countries.json').success(callback);
           }
         };
       });
 
-      countryApp.controller('CountryListCtrl', function ($scope, $http, countries){
-        countries.list(function(countries){
+      countryApp.controller('CountryListCtrl', function ($scope, countries){
+        countries.list(function(countries) {
           $scope.countries = countries;
         });
       });
 
       countryApp.controller('CountryDetailCtrl', function ($scope, $routeParams, $http){
         $http.get('countries.json').success(function(data) {
-
           $scope.country = data.filter(function(entry){
-            return entry.name === $scope.name;
+            return entry.name === $routeParams.countryName
           })[0];
-
         });
       });
     </script>
