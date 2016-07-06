@@ -9,11 +9,11 @@
       countryApp.config(function($routeProvider) {
         $routeProvider.
           when('/', {
-            template: '<ul><li ng-repeat="country in countries">{{country.name}}</li><ul>',
+            templateUrl: 'country-List.html',
             controller: 'CountryListCtrl'
           }).
           when('/:countryName', {
-            template: '<h1>TODO create country detail view</h1>',
+            templateUrl: 'country-detail.html',
             controller: 'CountryDetailCtrl'
           }).
           otherwise({
@@ -26,7 +26,7 @@
         });
       });
       countryApp.controller('CountryDetailCtrl', function ($scope, $routeParams){
-        console.log($routeParams);
+        $scope.name = $routeParams.countryName;
       });
     </script>
   </head>
