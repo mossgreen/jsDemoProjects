@@ -13,20 +13,23 @@
 			{"name":"US", "population": 31}
 			];
 			
-		});
+		});	
 	</script>
 </head>	
 <body >
 	<div ng-controller="CountryCtrl">
-		<ul>
-			<li ng-repeat="country in countries">{{country.name}} - population {{country.population}}
-			</li>
-		</ul>
 
-		<form ng-submit="addName()">
-			<input type="text" ng-model="enteredName">
-			<input type="submit" value="add">
-		</form>
+	<table>
+		<tr>
+			<th>Country</th>
+			<th>Population</th>
+		</tr>
+		<tr ng-repeat="country in countries">
+			<td>{{country.name}}</td>
+			<td>{{country.population}}</td>
+		</tr>
+	</table>
+
 	</div>	
 </body>
 </html>
