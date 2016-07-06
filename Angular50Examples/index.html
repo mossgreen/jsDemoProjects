@@ -6,16 +6,14 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
 	<script type="text/javascript">
 		var countryApp = angular.module('countryApp',[]);
-		countryApp.controller('CountryCtrl', function($scope){
-			$scope.countries = [
-			{"name":"China", "population": 136},
-			{"name":"India", "population": 120},
-			{"name":"US", "population": 31}
-			];
+		countryApp.controller('CountryCtrl', function($scope,$http){
+			$http.get('countries.json').success(function(data){
+				$scope.countries = data;
+			});
 			
 		});	
 	</script>
-</head>	
+</head>		
 <body >
 	<div ng-controller="CountryCtrl">
 
