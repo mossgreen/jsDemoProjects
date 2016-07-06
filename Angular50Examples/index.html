@@ -22,15 +22,21 @@
           });
       });
 
-      countryApp.controller('CountryListCtrl', function ($scope, $http){
-        $http.get('countries.json').success(function(data) {
-          $scope.countries = data;
+      conntryApp.factory('countries', function($http){
+        return {
+          list:function(callback){
+            $http.get('countries.json').success(callback);
+          }
+        };
+      });
+
+      countryApp.controller('CountryListCtrl', function ($scope, $http, countries){
+        countries.list(function(countries){
+          $scope.countries = countries;
         });
       });
 
       countryApp.controller('CountryDetailCtrl', function ($scope, $routeParams, $http){
-        $scope.name = $routeParams.countryName;
-
         $http.get('countries.json').success(function(data) {
 
           $scope.country = data.filter(function(entry){
