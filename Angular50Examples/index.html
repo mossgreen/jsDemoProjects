@@ -6,23 +6,23 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
 	<script type="text/javascript">
 		var countryApp = angular.module('countryApp',[]);
-		countryApp.controller('CountryCtrl',['$scope', '$http',function(sForScopt, hForhttp){
-			hForhttp.get('countries.json').success(function(data){
-				sForScopt.countries = data;
+		countryApp.controller('CountryCtrl',function($scope, $http){
+			$http.get('countries.json').success(function(data){
+				$scope.countries = data;
 			});
-		}]
-		);	
+			$scope.sortField = '-id';
+		});	
 	</script>
 </head>		
 <body >
 	<div ng-controller="CountryCtrl">
-	search:<input ng-model="query" type="text" /><br>
+		search:<input ng-model="query" type="text" /><br>
 		<table>
 			<tr>
-				<th>Country</th>
-				<th>Population</th>
+				<th><a href="" ng-click="sortField = 'name'">Country</a></th>
+				<th><a href="" ng-click="sortField = 'id'">Id</a></th>
 			</tr>
-			<tr ng-repeat="country in countries|filter:query">
+			<tr ng-repeat="country in countries|filter:query | orderBy:sortField ">
 				<td>{{country.name}}</td>
 				<td>{{country.id}}</td>
 			</tr>
