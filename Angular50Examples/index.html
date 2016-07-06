@@ -1,32 +1,25 @@
 
 <!DOCTYPE html>
-<html ng-app="nameApp">
+<html ng-app="countryApp">
 <head>
 	<title>Angular.js Example</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
 	<script type="text/javascript">
-		var nameApp = angular.module('nameApp',[]);
-		nameApp.controller('NameCtrl', function($scope){
-			$scope.names = ['feifei','huahua','jiajia'];
-
-			$scope.addName = function(){
-				$scope.names.push($scope.enteredName);
-				$scope.enteredName = "";
-			};	
-
-			$scope.removeName = function(name){
-				var i = $scope.names.indexOf(name);
-				$scope.names.splice(i,1);
-			}
+		var countryApp = angular.module('countryApp',[]);
+		countryApp.controller('CountryCtrl', function($scope){
+			$scope.countries = [
+			{"name":"China", "population": 136},
+			{"name":"India", "population": 120},
+			{"name":"US", "population": 31}
+			];
 			
 		});
 	</script>
 </head>	
 <body >
-	<div ng-controller="NameCtrl">
+	<div ng-controller="CountryCtrl">
 		<ul>
-			<li ng-repeat="name in names">{{name}}
-				<a href="" ng-click="removeName(name)">remove</a>
+			<li ng-repeat="country in countries">{{country.name}} - population {{country.population}}
 			</li>
 		</ul>
 
