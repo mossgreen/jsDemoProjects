@@ -10,7 +10,8 @@
 			$http.get('countries.json').success(function(data){
 				$scope.countries = data;
 			});
-			$scope.sortField = '-id';
+			$scope.sortField = 'name';
+			$scope.reverse = true;
 		});	
 	</script>
 </head>		
@@ -19,10 +20,10 @@
 		search:<input ng-model="query" type="text" /><br>
 		<table>
 			<tr>
-				<th><a href="" ng-click="sortField = 'name'">Country</a></th>
-				<th><a href="" ng-click="sortField = 'id'">Id</a></th>
+				<th><a href="" ng-click="sortField = 'name'; reverse = !reverse">Country</a></th>
+				<th><a href="" ng-click="sortField = 'id'; reverse = !reverse ">Id</a></th>
 			</tr>
-			<tr ng-repeat="country in countries|filter:query | orderBy:sortField ">
+			<tr ng-repeat="country in countries|filter:query | orderBy:sortField:reverse ">
 				<td>{{country.name}}</td>
 				<td>{{country.id}}</td>
 			</tr>
