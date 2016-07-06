@@ -6,27 +6,27 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
 	<script type="text/javascript">
 		var countryApp = angular.module('countryApp',[]);
-		countryApp.controller('CountryCtrl', function($scope,$http){
-			$http.get('countries.json').success(function(data){
-				$scope.countries = data;
+		countryApp.controller('CountryCtrl',['$scope', '$http',function(s, http){
+			http.get('countries.json').success(function(data){
+				s.countries = data;
 			});
-			
-		});	
-	</script>
+		}]
+	);	
+</script>
 </head>		
 <body >
 	<div ng-controller="CountryCtrl">
 
-	<table>
-		<tr>
-			<th>Country</th>
-			<th>Population</th>
-		</tr>
-		<tr ng-repeat="country in countries">
-			<td>{{country.name}}</td>
-			<td>{{country.population}}</td>
-		</tr>
-	</table>
+		<table>
+			<tr>
+				<th>Country</th>
+				<th>Population</th>
+			</tr>
+			<tr ng-repeat="country in countries">
+				<td>{{country.name}}</td>
+				<td>{{country.id}}</td>
+			</tr>
+		</table>
 
 	</div>	
 </body>
