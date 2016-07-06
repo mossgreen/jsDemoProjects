@@ -6,10 +6,11 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.10/angular-route.min.js"></script>
     <script>
       var countryApp = angular.module('countryApp', ['ngRoute']);
+
       countryApp.config(function($routeProvider) {
         $routeProvider.
           when('/', {
-            templateUrl: 'country-List.html',
+            templateUrl: 'country-list.html',
             controller: 'CountryListCtrl'
           }).
           when('/:countryName', {
@@ -20,13 +21,23 @@
             redirectTo: '/'
           });
       });
+
       countryApp.controller('CountryListCtrl', function ($scope, $http){
         $http.get('countries.json').success(function(data) {
           $scope.countries = data;
         });
       });
-      countryApp.controller('CountryDetailCtrl', function ($scope, $routeParams){
+
+      countryApp.controller('CountryDetailCtrl', function ($scope, $routeParams, $http){
         $scope.name = $routeParams.countryName;
+
+        $http.get('countries.json').success(function(data) {
+
+          $scope.country = data.filter(function(entry){
+            return entry.name === $scope.name;
+          })[0];
+
+        });
       });
     </script>
   </head>
