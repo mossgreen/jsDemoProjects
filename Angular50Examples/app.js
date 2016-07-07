@@ -1,4 +1,4 @@
-var countryApp = angular.module('countryApp', ['ngRoute'],'countryControllers');
+var countryApp = angular.module('countryApp', ['ngRoute','countryControllers']);
 
       countryApp.config(function($routeProvider) {
         $routeProvider.
