@@ -23,17 +23,14 @@
     });
 
     countryApp.factory('countries', function($http){
-      var cachedData;
 
       function getData(callback){
-        if(cachedData){
-          callback(cachedData);
-        }else{
-          $http.get('countries.json').success(function(data){
-            cachedData = data;
-            callback(data);
-          });
-        }
+        $http({
+          method: 'GET',
+          url: 'countries.json',
+          cache: true
+        }).success(callback);
+
       }
 
       return {
@@ -58,7 +55,7 @@
     countryApp.controller('CountryDetailCtrl', function ($scope, $routeParams, countries){
       countries.find($routeParams.countryName, function(country){
         $scope.country = country;
-        
+
       });
     });
   </script>
