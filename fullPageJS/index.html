@@ -12,22 +12,6 @@
         color:#fff;
     }
 
-    .section1{
-        background-color: green;
-    }
-
-    .section2{
-        background-color: orange;
-    }
-
-    .section3{
-        background-color: gray;
-    }
-
-    .section4{
-        background-color: red; 
-    }
-
     .slide{
         text-align:center;
     }
@@ -35,15 +19,15 @@
 </head>
 <body>
     <div id="fullpage">
-        <div class="section section1"><h1>Section01</h1></div>
-        <div class="section section2">
+        <div class="section  "><h1>Section01</h1></div>
+        <div class="section  ">
            <div class="slide">slide01</div>
            <div class="slide">slide02</div>
            <div class="slide">slide03</div>
            <div class="slide">slide04</div>
        </div>
-       <div class="section section3"><h1>Section03</h1></div>
-       <div class="section section4"><h1>Section04</h1></div>
+       <div class="section  "><h1>Section03</h1></div>
+       <div class="section  "><h1>Section04</h1></div>
    </div>
 
 
@@ -51,7 +35,9 @@
    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.8.2/jquery.fullPage.js"></script>
    <script>
     $(document).ready(function(){
-        $('#fullpage').fullpage();
+        $('#fullpage').fullpage({
+            sectionsColor:['green', 'orange', 'gray','red']
+        });
     });
 </script>
 </body>
