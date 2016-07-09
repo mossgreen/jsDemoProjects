@@ -33,7 +33,7 @@
 </head>
 <body>
   <ul id="fullpageMenu">
-  <li data-menuanchor="page1" class="active"><a href="#page1">section 1</a></li>
+    <li data-menuanchor="page1" class="active"><a href="#page1">section 1</a></li>
     <li data-menuanchor="page2"><a href="#page2">section 2</a></li>
     <li data-menuanchor="page3"><a href="#page3">section 3</a></li>
     <li data-menuanchor="page4"><a href="#page4">section 4</a></li>
@@ -74,10 +74,14 @@
              // paddingBottom:'200px' //default is 0
              // fixedElements:'#header',
              continuousVertical: true, //default is false
-              menu: '#fullpageMenu',
-              navigation:true,
-              navigationPosition: 'right',
-              navigationTooltips:['page1','page2','page3','page4'],
+             menu: '#fullpageMenu',
+             navigation:true,
+             navigationPosition: 'right',
+             navigationTooltips:['page1','page2','page3','page4'],
+             // showActiveTooltip:true, //default is false
+             slidesNavigation: true, //default is false
+             slidesNavPosition: 'bottom', ////default is bottom
+
 
            });
   });
