@@ -1,27 +1,58 @@
 <!DOCTYPE html>
 <html>
-    <head lang="en">
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-svalable=no" />
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-svalable=no" />
 
-        <title>Full Page JS demo</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.8.2/jquery.fullPage.min.css">
-    </head>
-    <body>
-        <div id="fullpage">
-            <div class="section">Section01</div>
-            <div class="section">Section02</div>
-            <div class="section">Section03</div>
-            <div class="section">Section04</div>
-        </div>
+    <title>Full Page JS demo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.8.2/jquery.fullPage.min.css">
+
+    <style type="text/css">
+    body{
+        color:#fff;
+    }
+
+    .section1{
+        background-color: green;
+    }
+
+    .section2{
+        background-color: orange;
+    }
+
+    .section3{
+        background-color: gray;
+    }
+
+    .section4{
+        background-color: red; 
+    }
+
+    .slide{
+        text-align:center;
+    }
+    </style>
+</head>
+<body>
+    <div id="fullpage">
+        <div class="section section1"><h1>Section01</h1></div>
+        <div class="section section2">
+           <div class="slide">slide01</div>
+           <div class="slide">slide02</div>
+           <div class="slide">slide03</div>
+           <div class="slide">slide04</div>
+       </div>
+       <div class="section section3"><h1>Section03</h1></div>
+       <div class="section section4"><h1>Section04</h1></div>
+   </div>
 
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.8.2/jquery.fullPage.js"></script>
-        <script>
-            $(document).ready(function(){
-                $('#fullpage').fullpage();
-            });
-        </script>
-    </body>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.8.2/jquery.fullPage.js"></script>
+   <script>
+    $(document).ready(function(){
+        $('#fullpage').fullpage();
+    });
+</script>
+</body>
 </html>
