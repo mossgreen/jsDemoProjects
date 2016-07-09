@@ -15,9 +15,17 @@
     .slide{
         text-align:center;
     }
+
+    #header{
+      font-size: 30px;
+      position:fixed;
+      top:0;
+      right:200px;
+    }
     </style>
 </head>
 <body>
+<div id="header">This is header</div>
     <div id="fullpage">
         <div class="section  "><h1>Section01</h1></div>
         <div class="section  ">
@@ -37,11 +45,22 @@
     $(document).ready(function(){
         $('#fullpage').fullpage({
             sectionsColor:['green', 'orange', 'gray','red'],
-             // controlArrows:false,
-             // verticalCentered:false,
-             // resize: true,
-             // srollingSpeed:2000,
-             anchors:['page1','page2','page3','page4']
+             // controlArrows:false, //default is true
+             // verticalCentered:false, //default is false
+             // resize: true, //default is false
+             // srollingSpeed:2000, //default is 700
+             anchors:['page1','page2','page3','page4'],
+             //lockAnchors:true, //default is false
+             //css3:true, //default is true
+             // loopTop:true, //default is false
+             // loopBottom:true, //default is false
+             // loopHorizontal:true, //default is true
+             // autoScrolling:false //default is true
+             //scrollBar: true //default is false
+             // paddingTop:'200px', //default is 0
+             // paddingBottom:'200px' //default is 0
+             fixedElements:'#header',
+
         });
     });
 </script>
