@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-svalable=no" />
+
+        <title>Full Page JS demo</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.8.2/jquery.fullPage.min.css">
+    </head>
+    <body>
+        <div id="fullpage">
+            <div class="section">Section01</div>
+            <div class="section">Section02</div>
+            <div class="section">Section03</div>
+            <div class="section">Section04</div>
+        </div>
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.8.2/jquery.fullPage.js"></script>
+        <script>
+            $(document).ready(function(){
+                $('#fullpage').fullpage();
+            });
+        </script>
+    </body>
+</html>
