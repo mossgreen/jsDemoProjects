@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-svalable=no" />
+
+	<title>Full Page JS demo</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.8.2/jquery.fullPage.min.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div id="fullpage">
+		<div class="section  "><h1>Section01</h1></div>
+		<div class="section  ">
+			<div class="slide">slide01</div>
+			<div class="slide">slide02</div>
+			<div class="slide">slide03</div>
+			<div class="slide">slide04</div>
+		</div>
+		<div class="section  "><h1>Section03</h1></div>
+		<div class="section  "><h1>Section04</h1></div>
+	</div>
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.8.2/jquery.fullPage.js"></script>
+	<script>
+		$(document).ready(function(){
+			$('#fullpage').fullpage({
+				sectionsColor:['green', 'orange', 'gray','red'],
+				anchors:['page1','page2','page3','page4'],
+             continuousVertical: true, //default is false
+             menu: '#fullpageMenu',
+             navigation:true,
+             navigationPosition: 'right',
+             navigationTooltips:['page1','page2','page3','page4'],
+             slidesNavigation: true, //default is false
+             slidesNavPosition: 'bottom', ////default is bottom
+         });
+		});
+	</script>
+</body>
+</html>
