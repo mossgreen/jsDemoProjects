@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head lang="en">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-svalable=no" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-svalable=no" />
 
-    <title>Full Page JS demo</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.8.2/jquery.fullPage.min.css">
+  <title>Full Page JS demo</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.8.2/jquery.fullPage.min.css">
 
-    <style type="text/css">
+  <style type="text/css">
     body{
-        color:#fff;
+      color:#fff;
     }
 
     .slide{
-        text-align:center;
+      text-align:center;
     }
 
     #header{
@@ -22,29 +22,42 @@
       top:0;
       right:200px;
     }
-    </style>
+
+    #fullpageMenu{
+      font-size: 30px;
+      position: fixed;
+      top:0;
+      z-index:999;
+    }
+  </style>
 </head>
 <body>
-<div id="header">This is header</div>
-    <div id="fullpage">
-        <div class="section  "><h1>Section01</h1></div>
-        <div class="section  ">
-           <div class="slide">slide01</div>
-           <div class="slide">slide02</div>
-           <div class="slide">slide03</div>
-           <div class="slide">slide04</div>
-       </div>
-       <div class="section  "><h1>Section03</h1></div>
-       <div class="section  "><h1>Section04</h1></div>
+  <ul id="fullpageMenu">
+  <li data-menuanchor="page1" class="active"><a href="#page1">section 1</a></li>
+    <li data-menuanchor="page2"><a href="#page2">section 2</a></li>
+    <li data-menuanchor="page3"><a href="#page3">section 3</a></li>
+    <li data-menuanchor="page4"><a href="#page4">section 4</a></li>
+  </ul>
+  <div id="header">This is header</div>
+  <div id="fullpage">
+    <div class="section  "><h1>Section01</h1></div>
+    <div class="section  ">
+     <div class="slide">slide01</div>
+     <div class="slide">slide02</div>
+     <div class="slide">slide03</div>
+     <div class="slide">slide04</div>
    </div>
+   <div class="section  "><h1>Section03</h1></div>
+   <div class="section  "><h1>Section04</h1></div>
+ </div>
 
 
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.8.2/jquery.fullPage.js"></script>
-   <script>
-    $(document).ready(function(){
-        $('#fullpage').fullpage({
-            sectionsColor:['green', 'orange', 'gray','red'],
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.8.2/jquery.fullPage.js"></script>
+ <script>
+  $(document).ready(function(){
+    $('#fullpage').fullpage({
+      sectionsColor:['green', 'orange', 'gray','red'],
              // controlArrows:false, //default is true
              // verticalCentered:false, //default is false
              // resize: true, //default is false
@@ -59,10 +72,15 @@
              //scrollBar: true //default is false
              // paddingTop:'200px', //default is 0
              // paddingBottom:'200px' //default is 0
-             fixedElements:'#header',
+             // fixedElements:'#header',
+             continuousVertical: true, //default is false
+              menu: '#fullpageMenu',
+              navigation:true,
+              navigationPosition: 'right',
+              navigationTooltips:['page1','page2','page3','page4'],
 
-        });
-    });
+           });
+  });
 </script>
 </body>
 </html>
