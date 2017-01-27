@@ -4,7 +4,8 @@
   "description": "default",
   "main": "index.js",
   "scripts": {
-    "test": "default"
+    "start": "webpack",
+    "test": "webpack"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,8 @@
   },
   "homepage": "https://github.com/n/a#readme",
   "devDependencies": {
-    "webpack": "^1.14.0"
+    "json-loader": "^0.5.4",
+    "webpack": "^1.14.0",
+    "webpack-dev-server": "^1.16.2"
   }
 }
