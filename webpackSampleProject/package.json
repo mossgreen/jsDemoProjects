@@ -1,0 +1,25 @@
+{
+  "name": "default",
+  "version": "1.0.0",
+  "description": "default",
+  "main": "index.js",
+  "scripts": {
+    "test": "default"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/n/a.git"
+  },
+  "keywords": [
+    "n/a"
+  ],
+  "author": "n/a",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/n/a/issues"
+  },
+  "homepage": "https://github.com/n/a#readme",
+  "devDependencies": {
+    "webpack": "^1.14.0"
+  }
+}
