@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
     <header class="header">
       <div class="g-row g-cont">
         <div class="g-col">
-          <h1 class="header__title"><a routerLink="/">SoundCloud • Angular2 NgRx</a></h1>
+          <h1 class="header__title"><a routerLink="/">SoundCloud • Angular2 moss</a></h1>
           <ul class="header__actions">
             <li>
               <icon-button icon="search-alt" (onClick)="toggleOpen()"></icon-button>
