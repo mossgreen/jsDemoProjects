@@ -1,8 +1,8 @@
 <html>
 
 <head>
-    <scirpt src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.7.3/d3.min.js"></scirpt>
-    <script src="d3.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.7.3/d3.min.js" charset="utf-8"></script>
+  <script src="d3.js"></script>
 </head>
 
 <body>
@@ -108,12 +108,24 @@
             else if (value > 20) { return "#FF0033" }
         }
 
-        svg.selectAll("rect")
+
+        svg.selectAll("circle")
             .data(dataset)
             .enter()
             .append("rect")
-            .attr("x", 10)
-            .attr("y")
+            .attr("x", function (d, i) {
+                return i * (w / dataset.length)
+            })
+            .attr("y", function (d) {
+                return h - (d * 4);
+            })
+            .attr("width", w / dataset.length - padding)
+            .attr("height", function (d) {
+                return d * 4;
+            })
+            .attr("fill", function (d) {
+                return colorPicker(d);
+            })
     </script>
 
     <script>
