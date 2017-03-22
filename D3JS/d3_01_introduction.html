@@ -1,0 +1,76 @@
+<html>
+
+<head>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+
+<body>
+
+    <h3>D3 introduction</h3>
+
+    <p>hi</p>
+    <p>how are you?</p>
+    <p>find, thank you. And you?</p>
+    <p>I'm find too.</p>
+    <p>Have a good day.</p>
+    <script>
+        //tedious DOM API
+        var paragraphs = document.getElementsByTagName("p");
+        for (var i = 0; i < paragraphs.length; i++) {
+            var paragraph = paragraphs.item(i);
+            paragraph.style.setProperty("color", "red", null);
+        }
+    </script>
+
+    <script>
+        //chagne text color using d3 api
+        d3.selectAll("p").style("color", "white");
+
+        //change background-color
+        d3.select("body").style("background-color", "black");
+
+        //randomly color paragraphs
+        d3.selectAll("p").style("color", function () {
+            return "hsl(" + Math.random() * 360 + ",100%,50%)";
+        });
+
+        //To alternate shades of gray for even and odd nodes:
+        /*d3.selectAll("p").style("color", function (d, i) {
+            return i % 2 ? "#fff" : "#eee";
+        });*/
+
+        //bound data
+        d3.selectAll("p")
+            .data([4, 8, 15, 16, 23, 42])
+            .style("font-size", function (d) { return d + "px"; });
+
+        //enter and exit selections, 
+        //create new nodes for incoming data and remove outgoing nodes that are no longer needed.
+        d3.select("body")
+            .selectAll("p")
+            .data([4, 8, 15, 16, 23, 42])
+            .enter().append("p")
+            .text(function (d) { return "I’m number " + d + "!"; })
+            .style("color", "red");
+
+        // Update…
+        var p = d3.select("body")
+            .selectAll("p")
+            .data([4, 8, 15, 16, 23, 42])
+            .text(function (d) { return d; });
+
+        // Enter…
+        p.enter().append("p")
+            .text(function (d) { return d; });
+
+        d3.select("body").transition()
+            .style("background-color", "white");
+
+        d3.selectAll("circle").transition()
+            .duration(750)
+            .delay(function (d, i) { return i * 10; })
+            .attr("r", function (d) { return Math.sqrt(d * scale); });
+    </script>
+</body>
+
+</html>
