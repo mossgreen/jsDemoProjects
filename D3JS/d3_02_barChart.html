@@ -1,0 +1,116 @@
+<html>
+
+<head>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+
+<body>
+    <script>
+        //with DOM api
+        var div = document.createElement("div");
+        div.innerHTML = "Hello, world!";
+        document.body.appendChild(div);
+
+        //with d3
+        var body = d3.select("body");
+        var div = body.append("div");
+        div.html("Hello, world!");
+
+        //render to red
+        var body = d3.select("body");
+        body.style("color", "black");
+        body.style("background-color", "red");
+
+        //render to white
+        d3.select("body")
+            .style("color", "black")
+            .style("background-color", "white");
+    </script>
+
+    <div class="chart"></div>
+    <style>
+        .chart div,
+        .chart2 div {
+            font: 10px sans-serif;
+            background-color: steelblue;
+            text-align: right;
+            padding: 3px;
+            margin: 1px;
+            color: white;
+        }
+    </style>
+    <script>
+        var data = [4, 8, 15, 16, 23, 42];
+        d3.select(".chart") //select the chart container using a class selector.
+            .selectAll("div")//initiate the data join by defining the selection to which we will join data
+            .data(data) //join the data to the selection using selection.data
+            .enter().append("div")//handle the enter selection which represents new data for which there was no existing element
+            .style("width", function (d) { return d * 10 + "px"; }) //set the width of each new bar as a multiple of the associated data value, d.
+            .text(function (d) { return d; });//set the text content of each bar, and produce a label
+    </script>
+
+    <div class="chart2"></div>
+    <script>
+        //Scaling to Fit
+        //D3’s scales specify a mapping from data space (domain) to display space (range):
+        var x = d3.scaleLinear()
+            .domain([0, d3.max(data)])
+            .range([0, 420]);
+
+        d3.select(".chart2")
+            .selectAll("div")
+            .data(data)
+            .enter().append("div")
+            .style("width", x)
+            .text(String);
+    </script>
+
+    <style>
+        .chart3 rect {
+            stroke: white;
+            fill: steelblue;
+        }
+    </style>
+
+    <div class="chart3"></div>
+    <script>
+        var chart = d3.select("body")
+            .append("svg:svg")
+            .attr("class", "chart3")
+            .attr("width", 420)
+            .attr("height", 20 * data.length)
+
+        var x = d3.scaleLinear()
+            .domain([0, d3.max(data)])
+            .range([0, 420]);
+
+        var y = d3.scaleBand()
+            .domain(data)
+            .range([0, 120]);
+
+        //add the chart
+        chart.selectAll("rect")
+            .data(data)
+            .enter().append("svg:rect")
+            .attr("y", y)
+            .attr("width", x)
+            .attr("height", y.bandwidth());
+
+        chart.selectAll("text")
+            .data(data)
+            .enter().append("svg:text")
+            .attr("x", x)
+            .attr("y", function (d) { return y(d) + y.bandwidth() / 2; })
+/*            .attr("refX", -3)
+            .atrr("refY", ".35em")*/
+            .attr("text-anchor", "end")
+            .text(String);
+
+            chart.append("svg:line")
+            .attr("y1", 0)
+            .atrr("y2",120)
+            .attr("stroke", "#000")
+    </script>
+</body>
+
+</html>
