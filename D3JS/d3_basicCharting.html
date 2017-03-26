@@ -1,0 +1,227 @@
+<html>
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.7.3/d3.min.js" charset="utf-8"></script>
+    <script src="d3.js"></script>
+</head>
+
+<body>
+
+    <h3>h3 basic charting</h3>
+    <script>
+        var w = 300;
+        var h = 100;
+        var padding = 2;
+        var dataset = [5, 10, 15, 20, 25];
+        var svg = d3.select("body")
+            .append("svg")
+            .attr("width", w)
+            .attr("height", h);
+        svg.selectAll("rect")
+            .data(dataset)
+            .enter()
+            .append("rect")
+            .attr("x", function (d, i) {
+                return i * (w / dataset.length)
+            })
+            .attr("y", function (d) {
+                return h - (d * 4);
+            })
+            .attr("width", w / dataset.length - padding)
+            .attr("height", function (d) {
+                return d * 4;
+            })
+    </script>
+
+    <h3>h3 basic charting - blue</h3>
+    <script>
+        var w = 300;
+        var h = 100;
+        var padding = 2;
+        var dataset = [5, 10, 15, 20, 25];
+        var svg = d3.select("body")
+            .append("svg")
+            .attr("width", w)
+            .attr("height", h);
+        svg.selectAll("rect")
+            .data(dataset)
+            .enter()
+            .append("rect")
+            .attr("x", function (d, i) {
+                return i * (w / dataset.length)
+            })
+            .attr("y", function (d) {
+                return h - (d * 4);
+            })
+            .attr("width", w / dataset.length - padding)
+            .attr("height", function (d) {
+                return d * 4;
+            })
+            .attr("fill", "blue")
+    </script>
+
+    <h3>h3 basic charting - Coloring</h3>
+    <script>
+        var w = 300;
+        var h = 100;
+        var padding = 2;
+        var dataset = [5, 10, 15, 20, 25];
+        var svg = d3.select("body")
+            .append("svg")
+            .attr("width", w)
+            .attr("height", h);
+        svg.selectAll("rect")
+            .data(dataset)
+            .enter()
+            .append("rect")
+            .attr("x", function (d, i) {
+                return i * (w / dataset.length)
+            })
+            .attr("y", function (d) {
+                return h - (d * 4);
+            })
+            .attr("width", w / dataset.length - padding)
+            .attr("height", function (d) {
+                return d * 4;
+            })
+            /*         .attr("fill", function(d){
+                         return "rgb(0, "+(d*10)+",0)";
+                     })*/
+            .attr("fill", function (d) {
+                return "rgb(" + (d * 10) + ",0,0)";
+            })
+    </script>
+
+    <h3>h3 basic charting - colorPicker</h3>
+    <script>
+        var w = 300;
+        var h = 100;
+        var padding = 2;
+        var dataset = [5, 10, 15, 20, 25];
+        var svg = d3.select("body")
+            .append("svg")
+            .attr("width", w)
+            .attr("height", h);
+
+        function colorPicker(value) {
+            if (value <= 20) { return "#666666" }
+            else if (value > 20) { return "#FF0033" }
+        }
+
+
+        svg.selectAll("circle")
+            .data(dataset)
+            .enter()
+            .append("rect")
+            .attr("x", function (d, i) {
+                return i * (w / dataset.length)
+            })
+            .attr("y", function (d) {
+                return h - (d * 4);
+            })
+            .attr("width", w / dataset.length - padding)
+            .attr("height", function (d) {
+                return d * 4;
+            })
+            .attr("fill", function (d) {
+                return colorPicker(d);
+            })
+    </script>
+
+    <h3>h3 basic charting - adding labels - on top</h3>
+    <script>
+        var w = 300;
+        var h = 200;
+        var padding = 2;
+        var dataset = [5, 10, 13, 17, 25, 16, 29, 18, 7];
+        var svg = d3.select("body")
+            .append("svg")
+            .attr("width", w)
+            .attr("height", h);
+
+        function colorPicker(value) {
+            if (value <= 20) { return "#666666" }
+            else if (value > 20) { return "#FF0033" }
+        }
+
+
+        svg.selectAll("circle")
+            .data(dataset)
+            .enter()
+            .append("rect")
+            .attr("x", function (d, i) {
+                return i * (w / dataset.length)
+            })
+            .attr("y", function (d) {
+                return h - (d * 4);
+            })
+            .attr("width", w / dataset.length - padding)
+            .attr("height", function (d) {
+                return d * 4;
+            })
+            .attr("fill", function (d) {
+                return colorPicker(d);
+            })
+
+        svg.selectAll("text")
+            .data(dataset)
+            .enter()
+            .append("text")
+            .text(function(d){return d;})
+        .attr("text-anchor", "middle")
+        .attr("x", function(d,i){return i*(w/dataset.length)+(w/dataset.length - padding)/2;})
+        .attr("y", function(d){return h-(d*4)-4;})
+        .attr("font-family", "sans-serif")        
+        .attr("font-size", "12");   
+    </script>
+
+    <h3>h3 basic charting - adding labels - inside </h3>
+    <script>
+        var w = 300;
+        var h = 200;
+        var padding = 2;
+        var dataset = [5, 10, 13, 17, 25, 16, 29, 18, 7];
+        var svg = d3.select("body")
+            .append("svg")
+            .attr("width", w)
+            .attr("height", h);
+
+        function colorPicker(value) {
+            if (value <= 20) { return "#666666" }
+            else if (value > 20) { return "#FF0033" }
+        }
+
+
+        svg.selectAll("circle")
+            .data(dataset)
+            .enter()
+            .append("rect")
+            .attr("x", function (d, i) {
+                return i * (w / dataset.length)
+            })
+            .attr("y", function (d) {
+                return h - (d * 4);
+            })
+            .attr("width", w / dataset.length - padding)
+            .attr("height", function (d) {
+                return d * 4;
+            })
+            .attr("fill", function (d) {
+                return colorPicker(d);
+            })
+
+        svg.selectAll("text")
+            .data(dataset)
+            .enter()
+            .append("text")
+            .text(function(d){return d;})
+        .attr("text-anchor", "middle")
+        .attr("x", function(d,i){return i*(w/dataset.length)+(w/dataset.length - padding)/2;})
+        .attr("y", function(d){return h-(d*4)+14;})
+        .attr("font-family", "sans-serif")        
+        .attr("font-size", "12") 
+        .attr("fill", "#ffffff");  
+    </script>
+</body>
+
+</html>
